@@ -1,0 +1,21 @@
+{
+	"name": "Integromat Apps Importer",
+	"version": "1.0.0",
+	"description": "Integromat Apps Importer allows you to import apps by a single click.",
+	"manifest_version": 2,
+	"background": {
+		"scripts": [
+			"background.mjs"
+		],
+		"persistent": false
+	},
+	"page_action": {
+		"default_popup": "popup.html"
+	},
+	"permissions": [
+		"declarativeContent",
+		"storage",
+		"cookies",
+		"*://*.zapier.com/*"
+	]
+}
