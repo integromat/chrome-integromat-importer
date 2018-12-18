@@ -1,4 +1,4 @@
-import Parser from './lib/Parser';
+import Parser from './lib/Parser.mjs';
 import Builder from './lib/Builder.mjs';
 
 export default {

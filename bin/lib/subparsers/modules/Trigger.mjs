@@ -1,8 +1,8 @@
-import camelCase from '../../updash/camelCase';
+import camelCase from '../../updash/camelCase.mjs';
 
-import { expandUrl, paramBuilder, isEmpty } from '../../common';
-import ParseFunctions from '../ParseFunctions';
-import ParseError from '../../ParseError';
+import { expandUrl, paramBuilder, isEmpty } from '../../common.mjs';
+import ParseFunctions from '../ParseFunctions.mjs';
+import ParseError from '../../ParseError.mjs';
 
 export default {
 	parse(source, app) {

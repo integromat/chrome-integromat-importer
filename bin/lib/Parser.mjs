@@ -1,21 +1,21 @@
-import kebabCase from './updash/kebabCase';
+import kebabCase from './updash/kebabCase.mjs';
 
-import { getColorCode, getRandomInt } from './common';
+import { getColorCode, getRandomInt } from './common.mjs';
 import ParseError from './ParseError.mjs';
 
-import BasicAuth from './subparsers/connections/BasicAuth';
-import ApiKeyQS from './subparsers/connections/ApiKeyQS';
-import ApiKeyHeaders from './subparsers/connections/ApiKeyHeaders';
-import OAuth1 from './subparsers/connections/OAuth1';
-import OAuth2 from './subparsers/connections/OAuth2';
-import OAuth2REF from './subparsers/connections/OAuth2REF';
+import BasicAuth from './subparsers/connections/BasicAuth.mjs';
+import ApiKeyQS from './subparsers/connections/ApiKeyQS.mjs';
+import ApiKeyHeaders from './subparsers/connections/ApiKeyHeaders.mjs';
+import OAuth1 from './subparsers/connections/OAuth1.mjs';
+import OAuth2 from './subparsers/connections/OAuth2.mjs';
+import OAuth2REF from './subparsers/connections/OAuth2REF.mjs';
 
-import Action from './subparsers/modules/Action';
-import Search from './subparsers/modules/Search';
-import RPC from './subparsers/modules/RPC';
-import Trigger from './subparsers/modules/Trigger';
-import InstantTrigger from './subparsers/modules/InstantTrigger';
-import Webhook from './subparsers/modules/Webhook';
+import Action from './subparsers/modules/Action.mjs';
+import Search from './subparsers/modules/Search.mjs';
+import RPC from './subparsers/modules/RPC.mjs';
+import Trigger from './subparsers/modules/Trigger.mjs';
+import InstantTrigger from './subparsers/modules/InstantTrigger.mjs';
+import Webhook from './subparsers/modules/Webhook.mjs';
 
 class Parser {
 

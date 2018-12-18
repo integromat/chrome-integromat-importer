@@ -1,5 +1,5 @@
-import { expandUrl } from '../../common';
-import ParseError from '../../ParseError';
+import { expandUrl } from '../../common.mjs';
+import ParseError from '../../ParseError.mjs';
 
 export default {
 	parse(source, app, raw, count) {

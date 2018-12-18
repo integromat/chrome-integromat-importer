@@ -1,6 +1,6 @@
-import { unmoustache, expandUrl } from '../../common';
-import ParseFunctions from '../ParseFunctions';
-import ParseError from '../../ParseError';
+import { unmoustache, expandUrl } from '../../common.mjs';
+import ParseFunctions from '../ParseFunctions.mjs';
+import ParseError from '../../ParseError.mjs';
 
 export default {
 	parse(raw, app) {

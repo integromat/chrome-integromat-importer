@@ -1,6 +1,6 @@
-import camelCase from '../../updash/camelCase';
+import camelCase from '../../updash/camelCase.mjs';
 
-import ParseFunctions from '../ParseFunctions';
+import ParseFunctions from '../ParseFunctions.mjs';
 
 export default {
 	parse(source, webhook) {

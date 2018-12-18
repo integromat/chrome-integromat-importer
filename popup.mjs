@@ -1,3 +1,5 @@
+import Importer from './bin/Importer.mjs'
+
 (async () => {
 	await listApps();
 })();
