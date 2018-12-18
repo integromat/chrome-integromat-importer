@@ -16,10 +16,18 @@ async function listApps() {
 		let actionCell = document.createElement('td');
 		let importButton = document.createElement('button');
 		importButton.innerText = "Import"
+		importButton.onclick = async function () { importApp(app.id) };
 
 		actionCell.appendChild(importButton);
 		row.appendChild(actionCell);
 
 		document.getElementById('apps').appendChild(row);
 	});
+}
+
+async function importApp(id) {
+	const source = await (await fetch(`https://zapier.com/api/developer/v1/apps/${id}`)).json();
+	const requests = Importer.parseSource(source);
+
+	console.log(requests);
 }

@@ -3,7 +3,7 @@ export default {
 		console.log('Building requests.');
 		const version = 1;
 		const requests = [];
-		const errors = [];
+		const errors = app.errors;
 
 		// New app
 		console.debug('/app');
