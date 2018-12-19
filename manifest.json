@@ -10,12 +10,13 @@
 		"persistent": true
 	},
 	"page_action": {
-		"default_popup": "popup.html"
+		"default_popup": "index.html"
 	},
 	"permissions": [
 		"declarativeContent",
 		"storage",
 		"cookies",
-		"*://*.zapier.com/*"
+		"*://*.zapier.com/*",
+		"*://*.integromat.com/*"
 	]
 }
