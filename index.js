@@ -1,5 +1,5 @@
-chrome.storage.local.get(['imt_apiKey'], function (result) {
-	chrome.tabs.getSelected(null, function (tab) {
+chrome.storage.local.get(['imt_apiKey'], async function (result) {
+	chrome.tabs.getSelected(null, async function (tab) {
 		if (!result['imt_apiKey']) {
 			if (tab.url !== 'https://www.integromat.com/scenarios/11102') {
 				location.replace("./html/gettingStarted.html")
@@ -11,6 +11,15 @@ chrome.storage.local.get(['imt_apiKey'], function (result) {
 		else {
 			if (!tab.url.match('zapier.com')) {
 				location.replace("./html/loggedIn.html")
+			}
+			else {
+				const status = (await fetch('https://zapier.com/api/developer/v1/apps')).status;
+				if (status === 200) {
+					location.replace("./html/zapierImport.html")
+				}
+				else {
+					location.replace("./html/zapierLogin.html")
+				}
 			}
 		}
 	});

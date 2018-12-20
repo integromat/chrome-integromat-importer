@@ -18,6 +18,7 @@ function redirectToZapier() {
 	chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
 		var tab = tabs[0];
 		chrome.tabs.update(tab.id, { url: "https://zapier.com/" });
+		location.replace("../index.html")
 	});
 }
 
