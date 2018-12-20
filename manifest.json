@@ -17,6 +17,7 @@
 		"storage",
 		"tabs",
 		"cookies",
-		"*://*.zapier.com/*"
+		"*://*.zapier.com/*",
+		"*://*.integromat.com/*"
 	]
 }
