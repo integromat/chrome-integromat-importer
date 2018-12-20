@@ -25,9 +25,34 @@ async function listApps() {
 	});
 }
 
-async function importApp(id) {
-	const source = await (await fetch(`https://zapier.com/api/developer/v1/apps/${id}`)).json();
-	const requests = Importer.parseSource(source);
 
-	console.log(requests);
+
+async function importApp(id) {
+	chrome.storage.local.get(['imt_apiKey'], async function (result) {
+
+		const body = document.getElementById('content');
+		body.innerHTML = `
+		<h1>Preparing to import</h1>
+		`
+		const source = await (await fetch(`https://zapier.com/api/developer/v1/apps/${id}`)).json();
+		const requests = Importer.parseSource(source);
+		body.innerHTML = `
+		<h1>Importing!</h1>
+		<progress id='progress' max="${requests.requests.length}" value="0"></progress>
+		`
+
+		const progressBar = document.getElementById('progress');
+
+		for (const request of requests.requests) {
+			console.log(request.endpoint)
+
+			// FIRE REQUESTS HERE
+
+			progressBar.value++;
+
+			// To prevent rate limit error
+			await new Promise(resolve => setTimeout(resolve, 600));
+		}
+
+	});
 }

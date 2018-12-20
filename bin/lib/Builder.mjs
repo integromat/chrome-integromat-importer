@@ -9,7 +9,7 @@ export default {
 		console.debug('/app');
 		requests.push({
 			endpoint: '/app',
-			method: 'PUT',
+			method: 'POST',
 			type: 'application/json',
 			body: {
 				name: app.name,
@@ -26,7 +26,7 @@ export default {
 		console.debug('/app/base');
 		requests.push({
 			endpoint: `/app/${app.name}/${version}/base`,
-			method: 'POST',
+			method: 'PUT',
 			type: 'application/json',
 			body: app.base
 		});
@@ -38,7 +38,7 @@ export default {
 			// New connection
 			requests.push({
 				endpoint: `/app/${app.name}/connection`,
-				method: 'PUT',
+				method: 'POST',
 				type: 'application/json',
 				body: {
 					type: connection.type,
@@ -49,7 +49,7 @@ export default {
 			// Parameters
 			requests.push({
 				endpoint: `/app/${app.name}/connection/${connection.name}/parameters`,
-				method: 'POST',
+				method: 'PUT',
 				type: 'application/json',
 				body: connection.parameters
 			});
@@ -57,7 +57,7 @@ export default {
 			// Api
 			requests.push({
 				endpoint: `/app/${app.name}/connection/${connection.name}/api`,
-				method: 'POST',
+				method: 'PUT',
 				type: 'application/json',
 				body: connection.api
 			});
@@ -65,7 +65,7 @@ export default {
 			// Common
 			requests.push({
 				endpoint: `/app/${app.name}/connection/${connection.name}/common`,
-				method: 'POST',
+				method: 'PUT',
 				type: 'application/json',
 				body: connection.common
 			});
@@ -73,7 +73,7 @@ export default {
 			// Scope
 			requests.push({
 				endpoint: `/app/${app.name}/connection/${connection.name}/scope`,
-				method: 'POST',
+				method: 'PUT',
 				type: 'application/json',
 				body: connection.scope
 			});
@@ -81,7 +81,7 @@ export default {
 			// Scopes
 			requests.push({
 				endpoint: `/app/${app.name}/connection/${connection.name}/scopes`,
-				method: 'POST',
+				method: 'PUT',
 				type: 'application/json',
 				body: connection.scopes
 			});
@@ -95,7 +95,7 @@ export default {
 			console.debug(`/app/rpcs/${rpc.name}`);
 			requests.push({
 				endpoint: `/app/${app.name}/${version}/rpc`,
-				method: 'PUT',
+				method: 'POST',
 				type: 'application/json',
 				body: {
 					name: rpc.name,
@@ -107,7 +107,7 @@ export default {
 			// Api
 			requests.push({
 				endpoint: `/app/${app.name}/${version}/rpc/${rpc.name}/api`,
-				method: 'POST',
+				method: 'PUT',
 				type: 'application/json',
 				body: rpc.api
 			});
@@ -115,7 +115,7 @@ export default {
 			// Parameters
 			requests.push({
 				endpoint: `/app/${app.name}/${version}/rpc/${rpc.name}/parameters`,
-				method: 'POST',
+				method: 'PUT',
 				type: 'application/json',
 				body: rpc.parameters
 			});
@@ -130,7 +130,7 @@ export default {
 			console.log(`/app/webhooks/${hook.name}`);
 			requests.push({
 				endpoint: `/app/${app.name}/webhook`,
-				method: 'PUT',
+				method: 'POST',
 				type: 'application/json',
 				body: {
 					name: hook.name,
@@ -143,7 +143,7 @@ export default {
 			// Parameters
 			requests.push({
 				endpoint: `/app/${app.name}/webhook/${hook.name}/parameters`,
-				method: 'POST',
+				method: 'PUT',
 				type: 'application/json',
 				body: hook.parameters
 			});
@@ -151,7 +151,7 @@ export default {
 			// Api
 			requests.push({
 				endpoint: `/app/${app.name}/webhook/${hook.name}/api`,
-				method: 'POST',
+				method: 'PUT',
 				type: 'application/json',
 				body: hook.api
 			});
@@ -159,7 +159,7 @@ export default {
 			// Attach
 			requests.push({
 				endpoint: `/app/${app.name}/webhook/${hook.name}/attach`,
-				method: 'POST',
+				method: 'PUT',
 				type: 'application/json',
 				body: hook.attach
 			});
@@ -167,7 +167,7 @@ export default {
 			// Detach
 			requests.push({
 				endpoint: `/app/${app.name}/webhook/${hook.name}/detach`,
-				method: 'POST',
+				method: 'PUT',
 				type: 'application/json',
 				body: hook.detach
 			});
@@ -181,7 +181,7 @@ export default {
 			console.debug(`/app/modules/${module.name}`);
 			requests.push({
 				endpoint: `/app/${app.name}/${version}/module`,
-				method: 'PUT',
+				method: 'POST',
 				type: 'application/json',
 				body: {
 					name: module.name,
@@ -196,7 +196,7 @@ export default {
 			// Api
 			requests.push({
 				endpoint: `/app/${app.name}/${version}/module/${module.name}/api`,
-				method: 'POST',
+				method: 'PUT',
 				type: 'application/json',
 				body: module.api || {}
 			});
@@ -205,7 +205,7 @@ export default {
 			if (module.type_id === 1) {
 				requests.push({
 					endpoint: `/app/${app.name}/${version}/module/${module.name}/epoch`,
-					method: 'POST',
+					method: 'PUT',
 					type: 'application/json',
 					body: module.epoch || {}
 				});
@@ -214,7 +214,7 @@ export default {
 			// Parameters
 			requests.push({
 				endpoint: `/app/${app.name}/${version}/module/${module.name}/parameters`,
-				method: 'POST',
+				method: 'PUT',
 				type: 'application/json',
 				body: module.parameters || []
 			});
@@ -223,7 +223,7 @@ export default {
 			if ([4, 9].includes(module.type_id)) {
 				requests.push({
 					endpoint: `/app/${app.name}/${version}/module/${module.name}/expect`,
-					method: 'POST',
+					method: 'PUT',
 					type: 'application/json',
 					body: module.expect || []
 				});
@@ -232,7 +232,7 @@ export default {
 			// Interface
 			requests.push({
 				endpoint: `/app/${app.name}/${version}/module/${module.name}/interface`,
-				method: 'POST',
+				method: 'PUT',
 				type: 'application/json',
 				body: module.interface || []
 			});
@@ -240,7 +240,7 @@ export default {
 			// Samples
 			requests.push({
 				endpoint: `/app/${app.name}/${version}/module/${module.name}/samples`,
-				method: 'POST',
+				method: 'PUT',
 				type: 'application/json',
 				body: module.samples || {}
 			});
@@ -248,7 +248,7 @@ export default {
 			// Scope
 			requests.push({
 				endpoint: `/app/${app.name}/${version}/module/${module.name}/scope`,
-				method: 'POST',
+				method: 'PUT',
 				type: 'application/json',
 				body: module.scope || []
 			});
