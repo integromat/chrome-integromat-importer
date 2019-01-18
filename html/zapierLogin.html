@@ -22,7 +22,14 @@
 <body class="center">
 	<h1 class="center" id="welcome">One last step</h1>
 	<p>It seems you're not logged to Zapier. Login first and then invoke the extension please.</p>
-	<script type="module" src="./zapier.js"></script>
+
+	<footer>
+		<hr>
+		<h5 style="float: left; text-align: left" id="currentUser"></h5>
+		<button style="float: right" type="button" id="buttonLogout">Logout</button>
+	</footer>
+
+	<script type="module" src="./zapierLogin.mjs"></script>
 </body>
 
 </html>
