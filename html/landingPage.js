@@ -1,13 +1,29 @@
-chrome.runtime.onMessage.addListener(
-	function (request, sender, sendResponse) {
-		if (request.success === true) {
-			location.replace('../index.html')
-		}
-	}
-);
+document.getElementById('login').addEventListener("click", addKey);
 
-function requestLogin() {
-	chrome.runtime.sendMessage({ action: "IMT_LOGIN" }, function () { });
+async function testKey(apiKey) {
+	try {
+		const account = await (await fetch('https://api.integromat.com/v1/whoami', {
+			headers: {
+				Authorization: `Token ${apiKey}`
+			}
+		})).json();
+		if (account.name) {
+			return 1;
+		}
+		return 0;
+	}
+	catch (err) {
+		return 0;
+	}
 }
 
-requestLogin();
+async function addKey() {
+	let apikey = document.getElementById('apikey');
+	if (!(await testKey(apikey.value))) {
+		alert('Invalid apikey!');
+	}
+	else {
+		chrome.storage.local.set({ 'imt_apiKey': apikey.value }, function () { });
+		location.replace("../index.html")
+	}
+}

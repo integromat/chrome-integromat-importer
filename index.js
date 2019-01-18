@@ -1,7 +1,7 @@
 chrome.storage.local.get(['imt_apiKey'], async function (result) {
 	chrome.tabs.getSelected(null, async function (tab) {
 		if (!result['imt_apiKey']) {
-			if (tab.url !== 'https://www.integromat.com/scenarios/11102') {
+			if (tab.url !== 'https://www.integromat.com/user#tab:api') {
 				location.replace("./html/gettingStarted.html")
 			}
 			else {
