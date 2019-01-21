@@ -105,6 +105,8 @@ async function importApp(id) {
 	 */
 	body.innerHTML = `
 	<h1>DONE!</h1>
-	${JSON.stringify(requests.errors)}
 	`
+	requests.errors.forEach(error => {
+		body.innerHTML += `<a href='https://docs.integromat.com/apps/primary/zapier-importer/errors/${error.code}'>${error.description}, SEV: ${error.severity}</a><br>`
+	})
 }

@@ -1,7 +1,7 @@
 class ParseError {
-	constructor(code, descrpition, severity) {
+	constructor(code, description, severity) {
 		this.code = code;
-		this.descrpition = descrpition;
+		this.description = description;
 		this.severity = severity;
 	}
 }
