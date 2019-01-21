@@ -7,7 +7,7 @@ export default {
 		connection.type = 'basic';
 		connection.label = `${raw.title}`;
 		connection.name = app.name;
-		connection.parameters = ParseFunctions.parseParameters(raw.auth_fields);
+		connection.parameters = ParseFunctions.parseZapierParameters(raw.auth_fields);
 		connection.common = {};
 		connection.scope = [];
 		connection.scopes = {};

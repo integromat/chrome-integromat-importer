@@ -12,7 +12,7 @@ export default {
 		action.label = source.label;
 		action.description = source.help_text;
 		if (app.connections.length !== 0) action.connection = app.name;
-		action.expect = ParseFunctions.parseParameters(source.fields);
+		action.expect = ParseFunctions.parseZapierParameters(source.fields);
 		action.api = [
 			{
 				method: 'POST',

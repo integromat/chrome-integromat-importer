@@ -1,5 +1,5 @@
 export default {
-	parseParameters(raw) {
+	parseZapierParameters(raw) {
 		return raw.map(source => {
 			const parameter = {};
 			switch (source.type_of) {
@@ -14,7 +14,7 @@ export default {
 						parameter.type = 'text';
 					} else {
 						parameter.type = 'select';
-						parameter.options = this.parseOptions(source.choices);
+						parameter.options = this.parseZapierOptions(source.choices);
 						if (source.list === true) {
 							parameter.multiple = true;
 						}
@@ -56,7 +56,7 @@ export default {
 			return parameter;
 		});
 	},
-	parseOptions(raw) {
+	parseZapierOptions(raw) {
 		raw = raw.split(',');
 		return raw.map(source => {
 			const lv = source.split('|');
@@ -67,7 +67,7 @@ export default {
 		});
 
 	},
-	parseInterface(raw) {
+	parseZapierInterface(raw) {
 		return raw.map(source => {
 			const item = {};
 			item.name = source.key;

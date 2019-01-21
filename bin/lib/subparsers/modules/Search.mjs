@@ -12,7 +12,7 @@ export default {
 		search.label = source.label;
 		search.description = source.help_text;
 		if (app.connections.length !== 0) search.connection = app.name;
-		search.expect = ParseFunctions.parseParameters(source.fields);
+		search.expect = ParseFunctions.parseZapierParameters(source.fields);
 		search.api = [
 			{
 				qs: paramBuilder(search.expect, expandUrl(source.url)),

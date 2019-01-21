@@ -27,7 +27,7 @@ export default {
 				label: `Client Secret`,
 				advanced: true
 			}
-		].concat(ParseFunctions.parseParameters(raw.auth_fields.filter(field => {
+		].concat(ParseFunctions.parseZapierParameters(raw.auth_fields.filter(field => {
 			return (!['access_token', 'refresh_token'].includes(field.key));
 		})));
 		connection.common = {

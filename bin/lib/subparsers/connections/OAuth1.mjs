@@ -28,7 +28,7 @@ export default {
 				label: `Consumer Secret`,
 				advanced: true
 			}
-		].concat(ParseFunctions.parseParameters(raw.auth_fields.filter(field => {
+		].concat(ParseFunctions.parseZapierParameters(raw.auth_fields.filter(field => {
 			return (!['oauth_token', 'oauth_token_secret'].includes(field.key));
 		})));
 

@@ -13,7 +13,7 @@ export default {
 		trigger.name = camelCase(source.key);
 		trigger.label = source.label;
 
-		trigger.parameters = ParseFunctions.parseParameters(source.fields);
+		trigger.parameters = ParseFunctions.parseZapierParameters(source.fields);
 		trigger.api = {
 			url: expandUrl(source.url),
 			qs: paramBuilder(trigger.parameters, expandUrl(source.url)),
@@ -29,7 +29,7 @@ export default {
 			}
 		};
 		trigger.epoch = {};
-		trigger.interface = ParseFunctions.parseInterface(source.associated_override);
+		trigger.interface = ParseFunctions.parseZapierInterface(source.associated_override);
 		trigger.samples = {};
 
 		app.errors.push(new ParseError(

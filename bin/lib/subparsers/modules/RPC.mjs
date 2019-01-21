@@ -16,7 +16,7 @@ export default {
 		if (app.connections.length !== 0) rpc.connection = app.name;
 		rpc.label = source.label;
 		rpc.name = source.key;
-		rpc.parameters = ParseFunctions.parseParameters(source.fields);
+		rpc.parameters = ParseFunctions.parseZapierParameters(source.fields);
 		rpc.api = {
 			qs: paramBuilder(rpc.parameters, expandUrl(source.url)),
 			url: expandUrl(source.url),
