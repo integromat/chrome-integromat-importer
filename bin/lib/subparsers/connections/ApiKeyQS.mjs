@@ -18,7 +18,7 @@ export default {
 			connectionKey = 'api_key';
 		} else {
 			app.errors.push(new ParseError(
-				'connection.api.apiKeyNotFound',
+				'connection/api-key/api-key-not-found',
 				'Field "api_key" was not found during the connection generation. The authorization template may be incorrect.',
 				3
 			));

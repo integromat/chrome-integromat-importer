@@ -5,7 +5,7 @@ import ParseError from '../../ParseError.mjs';
 export default {
 	parse(raw, app) {
 		app.errors.push(new ParseError(
-			'connection.oauth2.register',
+			'connection/oauth-2/register',
 			'The app is using OAuth 2 connection. A Client ID and Client Secret have to be generated for the app.',
 			6
 		));
@@ -45,14 +45,14 @@ export default {
 		}
 		connection.scopes = {};
 		app.errors.push(new ParseError(
-			'connection.oauth2.scopeNames',
+			'connection/oauth-2/scope-names',
 			'Human readable scope names should be provided.',
 			1
 		));
 
 		if (raw.oauth_data__access_token_placement !== 'header') {
 			app.errors.push(new ParseError(
-				'connection.oauth2.tokenNotInHeaders',
+				'connection/oauth-2/token-not-in-headers',
 				'Access token isn\'t being sent in request headers. The connection should be reviewed.',
 				5
 			));

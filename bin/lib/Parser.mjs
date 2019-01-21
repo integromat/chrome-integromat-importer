@@ -40,7 +40,7 @@ class Parser {
 
 		if (raw.js !== null) {
 			app.errors.push(new ParseError(
-				'app.usingCustomJs',
+				'app/using-custom-js',
 				'The app is using custom scripting. Sadly, this is unimportable feature and the code has to be imported manually.',
 				6
 			));
@@ -50,7 +50,7 @@ class Parser {
 
 		if (raw.test_trigger === null) {
 			app.errors.push(new ParseError(
-				'connection.noInfo',
+				'connection/no-info',
 				'Connection test was not found. That means there\'s no way how to validate the connection. Info request should be added.',
 				3
 			));
@@ -102,7 +102,7 @@ class Parser {
 			// Digest auth
 			case 7:
 				app.errors.push(new ParseError(
-					'connection.digest.notSupported',
+					'connection/digest/not-supported',
 					'Digest auth connection type is supported, however it can\'t be imported directly.',
 					5
 				));
@@ -111,7 +111,7 @@ class Parser {
 			// Session Auth
 			case 9:
 				app.errors.push(new ParseError(
-					'connection.sessauth.notSupported',
+					'connection/session/not-supported',
 					'Session auth connection type is currently not supported.',
 					6
 				));
@@ -119,7 +119,7 @@ class Parser {
 
 			default:
 				app.errors.push(new ParseError(
-					'connection.unknown',
+					'connection/unknown',
 					'Unknown connection type detected.',
 					6
 				));
@@ -146,7 +146,7 @@ class Parser {
 
 			if (source.paging !== false) {
 				app.errors.push(new ParseError(
-					'trigger.paging',
+					'trigger/paging',
 					`The trigger ${source.label} is using pagination. This has to be implemented manually.`,
 					4
 				));

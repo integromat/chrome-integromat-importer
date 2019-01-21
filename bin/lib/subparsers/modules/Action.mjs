@@ -23,7 +23,7 @@ export default {
 		];
 		if (!isEmpty(action.api[0].qs)) {
 			app.errors.push(new ParseError(
-				'action.api.bodyImplicit',
+				'action/implicit-body',
 				`The body for action ${action.label} was generated automatically. Should be reviewed.`,
 				1
 			));
@@ -31,7 +31,7 @@ export default {
 		action.parameters = [];
 		if (source.action_fields_result_url) {
 			app.errors.push(new ParseError(
-				'action.interface.generated',
+				'action/generated-interface',
 				`The interface for action ${action.label} is being generated using RPC.`,
 				4
 			));

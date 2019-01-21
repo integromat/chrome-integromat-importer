@@ -6,7 +6,7 @@ export default {
 	parse(source, app, raw) {
 		if (source.paging !== false) {
 			app.errors.push(new ParseError(
-				'rpc.paging',
+				'rpc/paging',
 				`The RPC ${source.label} is using pagination. This has to be implemented manually.`,
 				4
 			));
@@ -25,7 +25,7 @@ export default {
 
 		if (!isEmpty(rpc.api.qs)) {
 			app.errors.push(new ParseError(
-				'rpc.api.qsImplicit',
+				'rpc/implicit-qs',
 				`The query string for RPC ${rpc.name} was generated automatically. Should be reviewed.`,
 				1
 			));
@@ -47,14 +47,14 @@ export default {
 		});
 		if (pattern === undefined) {
 			app.errors.push(new ParseError(
-				'rpc.usageNotFound',
+				'rpc/usage-not-found',
 				`Usage of RPC "${rpc.name}" was not found! Response couldn\'t be generated.`,
 				4
 			));
 		} else {
 			const crumbs = pattern.split('.');
 			app.errors.push(new ParseError(
-				'rpc.api.iterate',
+				'rpc/iterate',
 				`Implicitly iterating "{{body}}" in response of RPC ${rpc.name}.`,
 				3
 			));

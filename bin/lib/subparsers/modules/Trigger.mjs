@@ -33,20 +33,20 @@ export default {
 		trigger.samples = {};
 
 		app.errors.push(new ParseError(
-			'trigger.api.iterate',
+			'trigger/iterate',
 			`Implicitly iterating "{{body}}" in response of trigger ${trigger.name}.`,
 			2
 		));
 
 		app.errors.push(new ParseError(
-			'trigger.epoch',
+			'trigger/epoch',
 			`Epoch for trigger ${trigger.name} can't be generated automatically.`,
 			5
 		));
 
 		if (!isEmpty(trigger.api.qs)) {
 			app.errors.push(new ParseError(
-				'trigger.api.qsImplicit',
+				'trigger/implicit-qs',
 				`The query string for trigger ${trigger.name} was generated automatically. Should be reviewed.`,
 				1
 			));

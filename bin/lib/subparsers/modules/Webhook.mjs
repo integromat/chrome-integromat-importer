@@ -26,7 +26,7 @@ export default {
 				method: 'DELETE'
 			};
 			app.errors.push(new ParseError(
-				'webhook.dynamic',
+				'webhook/dynamic',
 				`The webhook ${webhook.name} is marked as dynamically registered webhook. The attach and detach RPCs should be checked.`,
 				4
 			));

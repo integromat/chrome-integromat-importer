@@ -18,7 +18,7 @@ export default {
 			authorizationKey = 'Authorization';
 		} else {
 			app.errors.push(new ParseError(
-				'connection.apikey.headerNotFound',
+				'connection/api-key/header-not-found',
 				`Connection Authorization header was not found. Authorization template may be incorrect.`,
 				3
 			));

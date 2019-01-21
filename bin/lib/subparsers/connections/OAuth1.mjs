@@ -5,7 +5,7 @@ import ParseError from '../../ParseError.mjs';
 export default {
 	parse(raw, app) {
 		app.errors.push(new ParseError(
-			'connection.oauth1.register',
+			'connection/oauth-1/register',
 			'The app is using OAuth 1 connection. A Consumer Key and Consumer Secret have to be generated for the app.',
 			6
 		));
@@ -48,14 +48,14 @@ export default {
 		}
 		connection.scopes = {};
 		app.errors.push(new ParseError(
-			'connection.oauth1.scopeNames',
+			'connection/oauth-1/scope-names',
 			'Human readable scope names should be provided.',
 			1
 		));
 
 		if (raw.oauth_data && raw.oauth_data.access_token_placement !== 'header') {
 			app.errors.push(new ParseError(
-				'connection.oauth1.tokenNotInHeaders',
+				'connection/oauth-1/token-not-in-headers',
 				'Access token isn\'t being sent in request headers. The connection should be reviewed.',
 				5
 			));
