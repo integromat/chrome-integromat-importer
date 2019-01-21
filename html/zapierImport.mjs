@@ -9,7 +9,9 @@ import Common from '../bin/Common.mjs'
 	document.getElementById("currentUser").innerText = `Currently logged in as ${(await Common.getUserData(await Common.getStoredApiKey())).name}.`;
 })();
 
-
+/**
+ * PAGE FUNCTIONS
+ */
 (async () => {
 	await listApps();
 })();
@@ -38,44 +40,47 @@ async function listApps() {
 
 
 async function importApp(id) {
-	chrome.storage.local.get(['imt_apiKey'], async function (result) {
+	const apiKey = await Common.getStoredApiKey();
 
-		const body = document.getElementById('content');
-		body.innerHTML = `
+	const body = document.getElementById('content');
+	body.innerHTML = `
 		<h1>Preparing to import</h1>
 		`
-		const source = await (await fetch(`https://zapier.com/api/developer/v1/apps/${id}`)).json();
-		const requests = Importer.parseSource(source);
-		body.innerHTML = `
-		<h1>Importing! Don't close</h1>
-		<progress id='progress' max="${requests.requests.length}" value="0"></progress>
-		`
+	const source = await (await fetch(`https://zapier.com/api/developer/v1/apps/${id}`)).json();
+	const requests = Importer.parseSource(source);
+	body.innerHTML = `
+	<h1>Importing! Don't close</h1>
+	<progress id='progress' max="${requests.requests.length}" value="0"></progress>
+	`
 
-		const progressBar = document.getElementById('progress');
+	const progressBar = document.getElementById('progress');
 
-		for (const request of requests.requests) {
-			console.log(request.endpoint)
+	for (const request of requests.requests) {
+		console.log(request.endpoint)
 
-			// FIRE REQUESTS HERE
-			console.log(request)
-			const response = await fetch(`https://api.integromat.com/v1${request.endpoint}`, {
-				method: request.method,
-				headers: {
-					'Content-Type': request.type,
-					'Authorization': `Token ${result['imt_apiKey']}`
-				},
-				body: JSON.stringify(request.body)
-			})
+		// FIRE REQUESTS HERE
+		console.log(request)
+		const response = await fetch(`https://api.integromat.com/v1${request.endpoint}`, {
+			method: request.method,
+			headers: {
+				'Content-Type': request.type,
+				'Authorization': `Token ${apiKey}`
+			},
+			body: JSON.stringify(request.body)
+		})
 
-			progressBar.value++;
-
-			// To prevent rate limit error
-			await new Promise(resolve => setTimeout(resolve, 600));
+		if (!response.ok) {
+			alert(`Import failed on calling ${request.endpoint}.`);
+			return false;
 		}
-		body.innerHTML = `
-		<h1>DONE!</h1>
-		${JSON.stringify(requests.errors)}
-		`
 
-	});
+		progressBar.value++;
+
+		// To prevent rate limit error
+		await new Promise(resolve => setTimeout(resolve, 600));
+	}
+	body.innerHTML = `
+	<h1>DONE!</h1>
+	${JSON.stringify(requests.errors)}
+	`
 }

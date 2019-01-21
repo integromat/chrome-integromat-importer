@@ -8,12 +8,13 @@ import Common from '../bin/Common.mjs'
 	document.getElementById("currentUser").innerText = `Currently logged in as ${(await Common.getUserData(await Common.getStoredApiKey())).name}.`;
 })();
 
+/**
+ * PAGE FUNCTIONS
+ */
 document.getElementById("letsgo").addEventListener("click", redirectToZapier);
 
-function redirectToZapier() {
-	chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-		var tab = tabs[0];
-		chrome.tabs.update(tab.id, { url: "https://zapier.com/" });
-		location.replace("../index.html")
-	});
+async function redirectToZapier() {
+	const currentTab = await Common.getCurrentTab();
+	await Common.setTabUrl(currentTab.id, 'https://zapier.com');
+	location.replace("../index.html")
 }
