@@ -83,7 +83,7 @@ async function importApp(id) {
 				'Content-Type': request.type,
 				'Authorization': `Token ${apiKey}`
 			},
-			body: JSON.stringify(request.body)
+			body: JSON.stringify(request.body, null, 4)
 		})
 
 		// Stop sending when last request failed

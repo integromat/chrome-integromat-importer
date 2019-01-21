@@ -1,4 +1,4 @@
-import { unmoustache, expandUrl } from '../../common.mjs';
+import { unmoustache, expandUrl, reorder } from '../../common.mjs';
 import ParseFunctions from '../ParseFunctions.mjs';
 import ParseError from '../../ParseError.mjs';
 
@@ -44,12 +44,16 @@ export default {
 			connection.api = {};
 		}
 
+		connection.api = reorder(connection.api, ['log', 'headers', 'url']);
+
 		headers[authorizationKey] = `${raw.auth_mapping[authorizationKey].split('{{')[0]}{{connection.${authorizationValue}}}`;
 
 		app.base.headers = headers;
 		app.base.log = {
 			sanitize: [`request.headers.${authorizationKey}`]
 		};
+
+		app.base = reorder(app.base, ['log', 'headers'])
 
 		return connection;
 	}

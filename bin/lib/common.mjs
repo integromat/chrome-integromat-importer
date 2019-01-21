@@ -45,4 +45,16 @@ function isEmpty(object) {
 	return (object && Object.keys(object).length === 0 && object.constructor === Object);
 }
 
-export { objectify, unmoustache, paramBuilder, getRandomInt, getColorCode, expandUrl, isEmpty };
+function reorder(object, keys) {
+	let output = {};
+	keys.forEach(key => {
+		if (object[key]) {
+			const buff = {};
+			buff[key] = object[key];
+			output = Object.assign(buff, output);
+		}
+	})
+	return output
+}
+
+export { objectify, unmoustache, paramBuilder, getRandomInt, getColorCode, expandUrl, isEmpty, reorder };

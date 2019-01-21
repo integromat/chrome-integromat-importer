@@ -27,7 +27,7 @@ export default {
 		requests.push({
 			endpoint: `/app/${app.name}/${version}/base`,
 			method: 'PUT',
-			type: 'application/json',
+			type: 'application/jsonc',
 			body: app.base
 		});
 
@@ -50,7 +50,7 @@ export default {
 			requests.push({
 				endpoint: `/app/${app.name}/connection/${connection.name}/parameters`,
 				method: 'PUT',
-				type: 'application/json',
+				type: 'application/jsonc',
 				body: connection.parameters
 			});
 
@@ -58,7 +58,7 @@ export default {
 			requests.push({
 				endpoint: `/app/${app.name}/connection/${connection.name}/api`,
 				method: 'PUT',
-				type: 'application/json',
+				type: 'application/jsonc',
 				body: connection.api
 			});
 
@@ -108,7 +108,7 @@ export default {
 			requests.push({
 				endpoint: `/app/${app.name}/${version}/rpc/${rpc.name}/api`,
 				method: 'PUT',
-				type: 'application/json',
+				type: 'application/jsonc',
 				body: rpc.api
 			});
 
@@ -116,7 +116,7 @@ export default {
 			requests.push({
 				endpoint: `/app/${app.name}/${version}/rpc/${rpc.name}/parameters`,
 				method: 'PUT',
-				type: 'application/json',
+				type: 'application/jsonc',
 				body: rpc.parameters
 			});
 
@@ -144,7 +144,7 @@ export default {
 			requests.push({
 				endpoint: `/app/${app.name}/webhook/${hook.name}/parameters`,
 				method: 'PUT',
-				type: 'application/json',
+				type: 'application/jsonc',
 				body: hook.parameters
 			});
 
@@ -152,7 +152,7 @@ export default {
 			requests.push({
 				endpoint: `/app/${app.name}/webhook/${hook.name}/api`,
 				method: 'PUT',
-				type: 'application/json',
+				type: 'application/jsonc',
 				body: hook.api
 			});
 
@@ -160,7 +160,7 @@ export default {
 			requests.push({
 				endpoint: `/app/${app.name}/webhook/${hook.name}/attach`,
 				method: 'PUT',
-				type: 'application/json',
+				type: 'application/jsonc',
 				body: hook.attach
 			});
 
@@ -168,7 +168,7 @@ export default {
 			requests.push({
 				endpoint: `/app/${app.name}/webhook/${hook.name}/detach`,
 				method: 'PUT',
-				type: 'application/json',
+				type: 'application/jsonc',
 				body: hook.detach
 			});
 		}
@@ -197,7 +197,7 @@ export default {
 			requests.push({
 				endpoint: `/app/${app.name}/${version}/module/${module.name}/api`,
 				method: 'PUT',
-				type: 'application/json',
+				type: 'application/jsonc',
 				body: module.api || {}
 			});
 
@@ -206,7 +206,7 @@ export default {
 				requests.push({
 					endpoint: `/app/${app.name}/${version}/module/${module.name}/epoch`,
 					method: 'PUT',
-					type: 'application/json',
+					type: 'application/jsonc',
 					body: module.epoch || {}
 				});
 			}
@@ -215,7 +215,7 @@ export default {
 			requests.push({
 				endpoint: `/app/${app.name}/${version}/module/${module.name}/parameters`,
 				method: 'PUT',
-				type: 'application/json',
+				type: 'application/jsonc',
 				body: module.parameters || []
 			});
 
@@ -224,7 +224,7 @@ export default {
 				requests.push({
 					endpoint: `/app/${app.name}/${version}/module/${module.name}/expect`,
 					method: 'PUT',
-					type: 'application/json',
+					type: 'application/jsonc',
 					body: module.expect || []
 				});
 			}
@@ -233,7 +233,7 @@ export default {
 			requests.push({
 				endpoint: `/app/${app.name}/${version}/module/${module.name}/interface`,
 				method: 'PUT',
-				type: 'application/json',
+				type: 'application/jsonc',
 				body: module.interface || []
 			});
 
