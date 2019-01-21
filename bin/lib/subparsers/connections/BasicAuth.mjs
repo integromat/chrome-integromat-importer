@@ -1,4 +1,4 @@
-import { unmoustache, expandUrl } from '../../common.mjs';
+import { unmoustache, expandUrl, reorder } from '../../common.mjs';
 import ParseFunctions from '../ParseFunctions.mjs';
 
 export default {
@@ -31,12 +31,16 @@ export default {
 			connection.api = {};
 		}
 
+		connection.api = reorder(connection.api, ['log', 'headers', 'url']);
+
 		app.base.headers = {
 			authorization: `Basic {{base64(connection.${usernameKey}+':'+connection.${passwordKey})}}`
 		};
 		app.base.log = {
 			sanitize: ['request.headers.authorization']
 		};
+
+		app.base = reorder(app.base, ['log', 'headers']);
 
 		return connection;
 	}

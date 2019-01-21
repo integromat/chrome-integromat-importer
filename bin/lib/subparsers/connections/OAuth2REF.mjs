@@ -1,4 +1,4 @@
-import { expandUrl } from '../../common.mjs';
+import { expandUrl, reorder } from '../../common.mjs';
 import ParseFunctions from '../ParseFunctions.mjs';
 import ParseError from '../../ParseError.mjs';
 
@@ -138,7 +138,22 @@ export default {
 					sanitize: [`request.headers.authorization`]
 				}
 			};
+
+			connection.api.info = reorder(connection.api.info, ['log', 'headers', 'url'])
+
 		}
+
+		connection.api.authorize.qs = reorder(connection.api.authorize.qs, ['response_type', 'redirect_uri', 'client_id', 'scope']);
+		connection.api.authorize = reorder(connection.api.authorize, ['response', 'url', 'qs']);
+		connection.api.token.body = reorder(connection.api.token.body, ['client_secret', 'redirect_uri', 'grant_type', 'client_id', 'code']);
+		connection.api.token.response.data = reorder(connection.api.token.response.data, ['refreshToken', 'accessToken', 'expires']);
+		connection.api.token.response = reorder(connection.api.token.response, ['expires', 'data']);
+		connection.api.token = reorder(connection.api.token, ['log', 'response', 'method', 'type', 'body', 'url']);
+		connection.api.refresh.body = reorder(connection.api.refresh.body, ['client_secret', 'redirect_uri', 'grant_type', 'client_id']);
+		connection.api.refresh.response.data = reorder(connection.api.refresh.response.data, ['refreshToken', 'accessToken', 'expires']);
+		connection.api.refresh.response = reorder(connection.api.refresh.response, ['expires', 'data']);
+		connection.api.refresh = reorder(connection.api.refresh, ['log', 'response', 'method', 'type', 'body', 'url', 'condition']);
+		connection.api = reorder(connection.api, ['info', 'refresh', 'token', 'authorize']);
 
 		app.base = {
 			headers: {

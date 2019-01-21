@@ -1,4 +1,4 @@
-import { expandUrl } from '../../common.mjs';
+import { expandUrl, reorder } from '../../common.mjs';
 import ParseFunctions from '../ParseFunctions.mjs';
 import ParseError from '../../ParseError.mjs';
 
@@ -120,7 +120,24 @@ export default {
 					token_secret: `{{connection.token_secret}}`
 				}
 			};
+
+			connection.api.info.oauth = reorder(connection.api.info.oauth, ['token_secret', 'token']);
+			connection.api.info = reorder(connection.api.info, ['oauth', 'url'])
+
 		}
+
+		connection.api.oauth = reorder(connection.api.oauth, ['consumer_secret', 'consumer_key']);
+		connection.api.requestToken.response.temp = reorder(connection.api.requestToken.response.temp, ['token_secret', 'token']);
+		connection.api.requestToken.response = reorder(connection.api.requestToken.response, ['type', 'temp']);
+		connection.api.requestToken = reorder(connection.api.requestToken, ['response', 'method', 'url']);
+		connection.api.authorize.response.temp = reorder(connection.api.authorize.response.temp, ['verifier', 'token']);
+		connection.api.authorize.response = reorder(connection.api.authorize.response, ['type', 'temp']);
+		connection.api.authorize = reorder(connection.api.authorize, ['response', 'oauth', 'url']);
+		connection.api.accessToken.response.data = reorder(connection.api.accessToken.response.data, ['token_secret', 'token']);
+		connection.api.accessToken.response = reorder(connection.api.accessToken.response, ['type', 'data']);
+		connection.api.accessToken.oauth = reorder(connection.api.accessToken.oauth, ['token_secret', 'verifier', 'token']);
+		connection.api.accessToken = reorder(connection.api.accessToken, ['response', 'method', 'oauth', 'type', 'url']);
+		connection.api = reorder(connection.api, ['info', 'accessToken', 'authorize', 'requestToken', 'oauth']);
 
 		app.base = {
 			oauth: {
@@ -128,6 +145,8 @@ export default {
 				token_secret: `{{connection.token_secret}}`
 			}
 		};
+
+		app.base.oauth = reorder(app.base.oauth, ['token_secret', 'token']);
 
 		return connection;
 	}

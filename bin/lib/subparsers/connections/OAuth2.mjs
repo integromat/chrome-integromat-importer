@@ -1,4 +1,4 @@
-import { expandUrl } from '../../common.mjs';
+import { expandUrl, reorder } from '../../common.mjs';
 import ParseFunctions from '../ParseFunctions.mjs';
 import ParseError from '../../ParseError.mjs';
 
@@ -108,7 +108,16 @@ export default {
 					sanitize: [`request.headers.authorization`]
 				}
 			};
+
+			connection.api.info = reorder(connection.api.info, ['log', 'headers', 'url'])
+
 		}
+
+		connection.api.authorize.qs = reorder(connection.api.authorize.qs, ['response_type', 'redirect_uri', 'client_id', 'scope']);
+		connection.api.authorize = reorder(connection.api.authorize, ['response', 'url', 'qs']);
+		connection.api.token.body = reorder(connection.api.token.body, ['client_secret', 'redirect_uri', 'grant_type', 'client_id', 'code']);
+		connection.api.token = reorder(connection.api.token, ['log', 'response', 'method', 'type', 'body', 'url']);
+		connection.api = reorder(connection.api, ['info', 'token', 'authorize']);
 
 		app.base = {
 			headers: {
@@ -118,6 +127,8 @@ export default {
 				sanitize: ['request.headers.authorization']
 			}
 		};
+
+		app.base = reorder(app.base, ['log', 'headers']);
 
 		return connection;
 	}

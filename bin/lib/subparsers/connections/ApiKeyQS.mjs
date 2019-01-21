@@ -1,4 +1,4 @@
-import { unmoustache, expandUrl } from '../../common.mjs';
+import { unmoustache, expandUrl, reorder } from '../../common.mjs';
 import ParseFunctions from '../ParseFunctions.mjs';
 import ParseError from '../../ParseError.mjs';
 
@@ -44,11 +44,15 @@ export default {
 			connection.api = {};
 		}
 
+		connection.api = reorder(connection.api, ['log', 'qs', 'url']);
+
 		qs[connectionKey] = `{{connection.${connectionValue}}}`;
 		app.base.qs = qs;
 		app.base.log = {
 			sanitize: [`request.qs.${connectionKey}`]
 		};
+
+		app.base = reorder(app.base, ['log', 'qs']);
 
 		return connection;
 	}
