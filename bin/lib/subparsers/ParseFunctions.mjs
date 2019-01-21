@@ -10,7 +10,7 @@ export default {
 					parameter.type = 'boolean';
 					break;
 				case 'unicode':
-					if (source.choices === null) {
+					if (!source.choices) {
 						parameter.type = 'text';
 					} else {
 						parameter.type = 'select';
