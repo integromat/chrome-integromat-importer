@@ -1,6 +1,6 @@
 import camelCase from '../../updash/camelCase.mjs';
 
-import { expandUrl, paramBuilder, isEmpty } from '../../common.mjs';
+import { expandUrl, paramBuilder, isEmpty, reorder } from '../../common.mjs';
 import ParseFunctions from '../ParseFunctions.mjs';
 import ParseError from '../../ParseError.mjs';
 
@@ -28,6 +28,10 @@ export default {
 				},
 			}
 		};
+		trigger.api.response.trigger = reorder(trigger.api.response.trigger, ['order', 'type', 'id']);
+		trigger.api.response = reorder(trigger.api.response, ['trigger', 'output', 'iterate']);
+		trigger.api = reorder(trigger, ['response', 'method', 'qs', 'url']);
+
 		trigger.epoch = {};
 		trigger.interface = ParseFunctions.parseZapierInterface(source.associated_override);
 		trigger.samples = {};

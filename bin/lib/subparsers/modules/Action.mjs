@@ -1,6 +1,6 @@
 import camelCase from '../../updash/camelCase.mjs';
 
-import { expandUrl, paramBuilder, isEmpty } from '../../common.mjs';
+import { expandUrl, paramBuilder, isEmpty, reorder } from '../../common.mjs';
 import ParseFunctions from '../ParseFunctions.mjs';
 import ParseError from '../../ParseError.mjs';
 
@@ -21,13 +21,15 @@ export default {
 				response: '{{body}}'
 			}
 		];
-		if (!isEmpty(action.api[0].qs)) {
+		if (!isEmpty(action.api[0].body)) {
 			app.errors.push(new ParseError(
 				'action/implicit-body',
 				`The body for action ${action.label} was generated automatically. Should be reviewed.`,
 				1
 			));
 		}
+		action.api = reorder(action.api, ['response', 'body', 'method', 'url']);
+
 		action.parameters = [];
 		if (source.action_fields_result_url) {
 			app.errors.push(new ParseError(
@@ -43,8 +45,11 @@ export default {
 			rpc.api = {
 				url: expandUrl(source.action_fields_result_url),
 				method: 'GET',
-				response: '{{body}}'
+				response: {
+					output: '{{parseZapierParameters(body)}}'
+				}
 			};
+			rpc.api = reorder(rpc.api, ['response', 'method', 'url']);
 			app.rpcs.push(rpc);
 			action.interface = [`rpc://${rpc.name}`];
 		} else {

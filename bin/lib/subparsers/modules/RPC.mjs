@@ -1,4 +1,4 @@
-import { expandUrl, paramBuilder, isEmpty } from '../../common.mjs';
+import { expandUrl, paramBuilder, isEmpty, reorder } from '../../common.mjs';
 import ParseFunctions from '../ParseFunctions.mjs';
 import ParseError from '../../ParseError.mjs';
 
@@ -66,6 +66,7 @@ export default {
 				}
 			};
 		}
+		rpc.api = reorder(rpc.api, ['response', 'qs', 'method', 'url'])
 		return rpc;
 	}
 };

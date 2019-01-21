@@ -1,6 +1,6 @@
 import camelCase from '../../updash/camelCase.mjs';
 
-import { expandUrl, paramBuilder, isEmpty } from '../../common.mjs';
+import { expandUrl, paramBuilder, isEmpty, reorder } from '../../common.mjs';
 import ParseFunctions from '../ParseFunctions.mjs';
 import ParseError from '../../ParseError.mjs';
 
@@ -29,6 +29,7 @@ export default {
 				1
 			));
 		}
+		search.api = reorder(search.api, ['response', 'qs', 'method', 'url']);
 		search.parameters = [];
 		if (source.search_fields_result_url) {
 			app.errors.push(new ParseError(
@@ -44,8 +45,11 @@ export default {
 			rpc.api = {
 				url: expandUrl(source.action_fields_result_url),
 				method: 'GET',
-				response: '{{body}}'
+				response: {
+					output: '{{parseZapierParameters(body)}}'
+				}
 			};
+			rpc.api = reorder(rpc.api, ['response', 'method', 'url']);
 			app.rpcs.push(rpc);
 			search.interface = [`rpc://${rpc.name}`];
 		} else {
