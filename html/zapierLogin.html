@@ -3,30 +3,63 @@
 
 <head>
 	<style>
-		button {
-			height: 30px;
-			width: 128px;
-			outline: none;
-		}
-
+		@import url('https://fonts.googleapis.com/css?family=Roboto:300,400&subset=latin-ext');
 		body {
 			width: 512px;
+			margin: 0 2px;
+			color: rgb(51,51,51);
+			font-size: 13px;
 		}
-
+		header {
+			background: #2f8cbb;
+			padding: 5px 15px 3px;
+		}
+		h1 {
+			font-family: 'Roboto', sans-serif;
+			font-weight: 300;
+		}
 		.center {
-			text-align: center
+			text-align: center;
+		}
+		.pb-30 {
+			padding-bottom: 20px;
+		}
+		footer {
+			border-top: 1px solid #e3e4e8;
+			padding: 15px;
+		}
+		a.logout {
+			color: #eb5768;
+			cursor: pointer;
+		}
+		a.logout:hover, a.logout:focus, a.logout:active {
+			color: #A43C48;
+		}
+		.o-6 {
+			opacity: .6;
+		}
+		.f-right {
+			float: right;
+		}
+		.h-icon {
+			color: #cfe7f3;
+			font-size: 5em;
+			margin: 10px;
 		}
 	</style>
 </head>
 
-<body class="center">
-	<h1 class="center" id="welcome">One last step</h1>
-	<p>It seems you're not logged to Zapier. Login first and then invoke the extension please.</p>
-
+<body>
+	<header>
+		<img src="https://static.integromat.com/img/logo-dark.svg" height="36" width="36">
+	</header>
+	<div class="center pb-30">
+		<h1 id="welcome" class="h-icon">&#9919;</h1>
+		<p>It seems you're not logged to Zapier.<br>Login first and then invoke the extension please.</p>
+	</div>
 	<footer>
-		<hr>
-		<h5 style="float: left; text-align: left" id="currentUser"></h5>
-		<button style="float: right" type="button" id="buttonLogout">Logout</button>
+		<span id="currentUser" class="o-6"></span>
+		<a class="logout f-right" id="buttonLogout">Logout ></a>
 	</footer>
 
 	<script type="module" src="./zapierLogin.mjs"></script>

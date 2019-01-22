@@ -3,26 +3,60 @@
 
 <head>
 	<style>
-		button {
-			height: 30px;
-			width: 128px;
-			outline: none;
-		}
-
+		@import url('https://fonts.googleapis.com/css?family=Roboto:300,400&subset=latin-ext');
 		body {
 			width: 512px;
+			margin: 0 2px;
+			color: rgb(51,51,51);
+			font-size: 13px;
 		}
-
+		header {
+			background: #2f8cbb;
+			padding: 7px 12px 4px;
+		}
+		h1 {
+			font-family: 'Roboto', sans-serif;
+			font-weight: 300;
+		}
+		button {
+			font-family: 'Roboto', sans-serif;
+			padding: .375rem .75rem;
+			border-radius: .25rem;
+			line-height: 1.5;
+			font-size: 16px;
+			outline: none;
+			cursor: pointer;
+		}
+		button.primary {
+			background: #2f8cbb;
+			border: 1px solid #2f8cbb;
+			color: #fff;
+		}
+		button.primary:hover {
+			color: #fff;
+			background-color: #27759c;
+			border-color: #256d92;
+		}
 		.center {
-			text-align: center
+			text-align: center;
+		}
+		.pb-30 {
+			padding-bottom: 20px;
 		}
 	</style>
 </head>
 
-<body class="center">
-	<h1 class="center">Hey there!</h1>
-	<p class="center">It looks like you haven't setup your Integromat API access yet.</p>
-	<button type="button" id="getStarted">Get started!</button>
+<body>
+	<header>
+		<a href="https://www.integromat.com">
+			<img src="https://static.integromat.com/img/logo-dark.svg" height="30" width="30">
+		</a>
+	</header>
+	<div class="center pb-30">
+		<h1>Hey there!</h1>
+		<p class="pb-30">It looks like you haven't setup your Integromat API access yet.</p>
+		<button class="primary" type="button" id="getStarted">Get started!</button>
+	</div>
 	<script type="module" src="./gettingStarted.mjs"></script>
 </body>
 

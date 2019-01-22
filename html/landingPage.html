@@ -3,29 +3,82 @@
 
 <head>
 	<style>
-		button {
-			height: 30px;
-			width: 128px;
-			outline: none;
-		}
-
+		@import url('https://fonts.googleapis.com/css?family=Roboto:300,400&subset=latin-ext');
 		body {
 			width: 512px;
+			margin: 0 2px;
+			color: rgb(51,51,51);
+			font-size: 13px;
+		}
+		header {
+			background: #2f8cbb;
+			padding: 5px 15px 3px;
+		}
+		h1 {
+			font-family: 'Roboto', sans-serif;
+			font-weight: 300;
+		}
+		button {
+			font-family: 'Roboto', sans-serif;
+			padding: .375rem .75rem;
+			border-radius: .25rem;
+			line-height: 1.5;
+			font-size: 16px;
+			outline: none;
+			cursor: pointer;
+		}
+		button.primary {
+			background: #2f8cbb;
+			border: 1px solid #2f8cbb;
+			color: #fff;
+		}
+		button.primary:hover {
+			color: #fff;
+			background-color: #27759c;
+			border-color: #256d92;
+		}
+		button#login {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+			margin-left: -2.5px;
+		}
+		.center {
+			text-align: center;
+		}
+		.pb-30 {
+			padding-bottom: 20px;
+		}
+		input {
+			height: 32px;
+			margin-right: -2.5px;
+			position: relative;
+			top: -1px;
+		}
+		input#apikey {
+			font-family: monospace;
+			letter-spacing: 1px;
+			color: grey;
+			width: 330px;
+			padding-left: 10px;
+			outline: 0;
 		}
 
-		.center {
-			text-align: center
-		}
 	</style>
 </head>
 
-<body class="center">
-	<h1 class="center">Let's login. Put your apikey below</h1>
-	<img src="http://placehold.it/512x256?text=GIF%20goes%20here">
-	<form>
-		<input type="text" id="apikey" required>
-		<button type="button" id="login">Login</button>
-	</form>
+<body>
+	<header>
+		<img src="https://static.integromat.com/img/logo-dark.svg" height="36" width="36">
+	</header>
+	<div class="center">
+		<h1>Let's log in</h1>
+		<p>Put your API key in the input below</p>
+		<form class="pb-30">
+			<input type="text" id="apikey" required>
+			<button type="button" class="primary" id="login">Login</button>
+		</form>
+		<img src="https://cyberpanda.cz/token.gif">
+	</div>
 	<script type="module" src="./landingPage.mjs"></script>
 </body>
 
