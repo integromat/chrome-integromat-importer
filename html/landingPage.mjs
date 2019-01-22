@@ -3,6 +3,17 @@ import Common from '../bin/Common.mjs'
 document.getElementById('login').addEventListener("click", addKey);
 
 /**
+ * Redirect listener
+ * If background script requests a login-page redirect
+ * This listener handles that
+ */
+chrome.runtime.onMessage.addListener((message) => {
+	if (message.redirect === 'login') {
+		location.replace("../index.html");
+	}
+});
+
+/**
  * testKey
  * This function tests the apiKey using getUserData from common functions
  * Returns false/undefined when there's a problem
