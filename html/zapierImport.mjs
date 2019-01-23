@@ -90,7 +90,7 @@ async function importApp(id) {
 
 	// If app creation failed
 	if (!response.ok) {
-		document.getElementById('alert').innerText = `App ${requests.preflight.body.name} couldn't be created.`;
+		document.getElementById('alert').innerHTML = `<span>App ${requests.preflight.body.name} couldn't be created.</span>`;
 		return false;
 	}
 
@@ -121,7 +121,7 @@ async function importApp(id) {
 
 		// Stop sending when last request failed
 		if (!response.ok) {
-			document.getElementById('alert').innerText = `Import failed on calling ${request.endpoint}.`;
+			document.getElementById('alert').innerHTML = `<span>Import failed on calling ${request.endpoint}.</span>`;
 			return false;
 		}
 
@@ -141,11 +141,9 @@ async function importApp(id) {
 	 * The error codes will be used for documentation links
 	 */
 	body.innerHTML = `
-	<div class="p-15">
-	<h1>DONE!</h1>
-	</div>
+	<h1 class="p-15">DONE!</h1>
 	`
 	requests.errors.forEach(error => {
-		body.innerHTML += `<a href='https://docs.integromat.com/apps/primary/zapier-importer/errors/${error.code}'>${error.description}, SEV: ${error.severity}</a><br>`
+		body.innerHTML += `<a class="doc" href='https://docs.integromat.com/apps/primary/zapier-importer/errors/${error.code}'>${error.description} - SEV: ${error.severity}</a>`
 	})
 }

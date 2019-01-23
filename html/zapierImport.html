@@ -107,7 +107,7 @@
 			font-size: 5em;
 			margin: 10px;
 		}
-		#alert {
+		#alert span {
 			position: relative;
 			padding: .75rem 1.25rem;
 			margin-bottom: 0;
@@ -117,9 +117,20 @@
 			background-color: #fbdde1;
 			border-color: #f9d0d5;
 			margin-top: 15px;
+			display: block;
 		}
 		.spin {
 			animation:spin 1s linear infinite;
+		}
+		h1.p-15 {
+			margin-bottom: 0;
+		}
+		a.doc {
+			display: block;
+			text-decoration: none;
+			color: #2f8cbb;
+			border-top: 1px solid #e3e4e8;
+			padding: 10px 15px;
 		}
 		@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 	</style>
@@ -127,7 +138,7 @@
 
 <body>
 	<header>
-		<a href="https://www.integromat.com">
+		<a href="https://www.integromat.com" target="_blank">
 			<img src="https://static.integromat.com/img/logo-dark.svg" height="30" width="30">
 		</a>
 	</header>
