@@ -55,7 +55,9 @@ async function importApp(id) {
 	// Show preimport content
 	const body = document.getElementById('content');
 	body.innerHTML = `
-		<h1>Preparing to import</h1>
+		<div class="p-15 center">
+		<h1 class="h-icon">&#8635;</h1>
+		</div>
 		`
 
 	// Get all needed sources
@@ -65,8 +67,11 @@ async function importApp(id) {
 
 	// Show import content and the progress bar
 	body.innerHTML = `
+	<div class="p-15">
 	<h1>Importing! Don't close</h1>
 	<progress id='progress' max="${requests.requests.length + 1}" value="0"></progress>
+	<div id="alert"></div>
+	</div>
 	`
 	const progressBar = document.getElementById('progress');
 
@@ -85,7 +90,7 @@ async function importApp(id) {
 
 	// If app creation failed
 	if (!response.ok) {
-		alert(`App ${requests.preflight.body.name} couldn't be created.`);
+		document.getElementById('alert').innerText =`App ${requests.preflight.body.name} couldn't be created.`;
 		return false;
 	}
 
@@ -109,7 +114,7 @@ async function importApp(id) {
 
 		// Stop sending when last request failed
 		if (!response.ok) {
-			alert(`Import failed on calling ${request.endpoint}.`);
+			document.getElementById('alert').innerText =`Import failed on calling ${request.endpoint}.`;
 			return false;
 		}
 
@@ -125,7 +130,9 @@ async function importApp(id) {
 	 * The error codes will be used for documentation links
 	 */
 	body.innerHTML = `
+	<div class="p-15">
 	<h1>DONE!</h1>
+	</div>
 	`
 	requests.errors.forEach(error => {
 		body.innerHTML += `<a href='https://docs.integromat.com/apps/primary/zapier-importer/errors/${error.code}'>${error.description}, SEV: ${error.severity}</a><br>`

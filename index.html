@@ -12,7 +12,7 @@
 		}
 		header {
 			background: #2f8cbb;
-			padding: 5px 15px 3px;
+			padding: 7px 12px 4px;
 		}
 		h1 {
 			font-family: 'Roboto', sans-serif;
@@ -24,15 +24,26 @@
 		.pb-30 {
 			padding-bottom: 20px;
 		}
+		.h-icon {
+			color: #cfe7f3;
+			font-size: 5em;
+			margin: 10px;
+		}
+		.spin {
+			animation:spin 1s linear infinite;
+		}
+		@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 	</style>
 </head>
 
 <body>
 	<header>
-		<img src="https://static.integromat.com/img/logo-dark.svg" height="36" width="36">
+		<a href="https://www.integromat.com">
+			<img src="https://static.integromat.com/img/logo-dark.svg" height="30" width="30">
+		</a>
 	</header>
-	<div class="center pb-30">
-		<h1>Loading...</h1>
+	<div class="p-15 center pb-30">
+		<h1 class="h-icon spin">&#8635;</h1>
 	</div>
 	<script type="module" src="index.mjs"></script>
 </body>

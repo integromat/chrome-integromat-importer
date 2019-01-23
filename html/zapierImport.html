@@ -12,7 +12,7 @@
 		}
 		header {
 			background: #2f8cbb;
-			padding: 5px 15px 3px;
+			padding: 7px 12px 4px;
 		}
 		h1 {
 			font-family: 'Roboto', sans-serif;
@@ -45,7 +45,7 @@
 			text-align: right;
 		}
 		td {
-			padding: 5px;
+			padding: 5px 5px 5px 15px;
 			border-bottom: 1px solid #e3e4e8;
 		}
 		table tr:last-child td {
@@ -80,14 +80,58 @@
 		tr:hover > td {
 			background-color: #f8f8f8;
 		}
+		.p-15 {
+			padding: 15px
+		}
+		progress {
+			width: 100%;
+			height: 2px;
+			margin: 30px auto 5px;
+			display: block;
+			-webkit-appearance: none;
+			border: none;
+		}
+		progress::-webkit-progress-bar {
+			background: #eee;
+			border-radius: .25rem;
+			padding: 0px;
+			box-shadow: none;
+		}
+		progress::-webkit-progress-value {
+			background:#2f8cbb;
+			border-radius: .25rem;
+			position: relative;
+		}
+		.h-icon {
+			color: #cfe7f3;
+			font-size: 5em;
+			margin: 10px;
+		}
+		#alert {
+			position: relative;
+			padding: .75rem 1.25rem;
+			margin-bottom: 0;
+			border: 1px solid transparent;
+			border-radius: .25rem;
+			color: #7a2d36;
+			background-color: #fbdde1;
+			border-color: #f9d0d5;
+			margin-top: 15px;
+		}
+		.spin {
+			animation:spin 1s linear infinite;
+		}
+		@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 	</style>
 </head>
 
-<body id='content'>
+<body>
 	<header>
-		<img src="https://static.integromat.com/img/logo-dark.svg" height="36" width="36">
+		<a href="https://www.integromat.com">
+			<img src="https://static.integromat.com/img/logo-dark.svg" height="30" width="30">
+		</a>
 	</header>
-	<div class="pb-30">
+	<div id="content" class="pb-30">
 		<h2 id="sr"></h2>
 		<table width="100%" id="apps">
 		</table>
