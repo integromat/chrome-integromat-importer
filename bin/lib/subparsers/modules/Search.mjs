@@ -29,7 +29,7 @@ export default {
 				1
 			));
 		}
-		search.api = reorder(search.api, ['response', 'qs', 'method', 'url']);
+		search.api = search.api.map(a => { return reorder(a, ['response', 'qs', 'method', 'url']) });
 		search.parameters = [];
 		if (source.search_fields_result_url) {
 			app.errors.push(new ParseError(

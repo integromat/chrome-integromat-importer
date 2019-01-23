@@ -28,7 +28,7 @@ export default {
 				1
 			));
 		}
-		action.api = reorder(action.api, ['response', 'body', 'method', 'url']);
+		action.api = action.api.map(a => { return reorder(a, ['response', 'body', 'method', 'url']) });
 
 		action.parameters = [];
 		if (source.action_fields_result_url) {

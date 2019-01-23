@@ -30,7 +30,7 @@ export default {
 		};
 		trigger.api.response.trigger = reorder(trigger.api.response.trigger, ['order', 'type', 'id']);
 		trigger.api.response = reorder(trigger.api.response, ['trigger', 'output', 'iterate']);
-		trigger.api = reorder(trigger, ['response', 'method', 'qs', 'url']);
+		trigger.api = reorder(trigger.api, ['response', 'method', 'qs', 'url']);
 
 		trigger.epoch = {};
 		trigger.interface = ParseFunctions.parseZapierInterface(source.associated_override);

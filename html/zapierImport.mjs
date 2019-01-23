@@ -66,9 +66,30 @@ async function importApp(id) {
 	// Show import content and the progress bar
 	body.innerHTML = `
 	<h1>Importing! Don't close</h1>
-	<progress id='progress' max="${requests.requests.length}" value="0"></progress>
+	<progress id='progress' max="${requests.requests.length + 1}" value="0"></progress>
 	`
 	const progressBar = document.getElementById('progress');
+
+	/**
+	 * Create the app from preflight request
+	 * Set the app name for all upcoming requests
+	 */
+	const response = await fetch(`https://api.integromat.com/v1${requests.preflight.endpoint}`, {
+		method: requests.preflight.method,
+		headers: {
+			'Content-Type': requests.preflight.type,
+			'Authorization': `Token ${apiKey}`
+		},
+		body: JSON.stringify(requests.preflight.body, null, 4)
+	});
+
+	// If app creation failed
+	if (!response.ok) {
+		alert(`App ${requests.preflight.body.name} couldn't be created.`);
+		return false;
+	}
+
+	const app = await response.json();
 
 	/**
 	 * Send all generated requests in sequence to Integromat
@@ -77,7 +98,7 @@ async function importApp(id) {
 	for (const request of requests.requests) {
 
 		// Fire the request and catch the response
-		const response = await fetch(`https://api.integromat.com/v1${request.endpoint}`, {
+		const response = await fetch(`https://api.integromat.com/v1/app/${app.name}${request.endpoint}`, {
 			method: request.method,
 			headers: {
 				'Content-Type': request.type,
