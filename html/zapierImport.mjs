@@ -90,11 +90,12 @@ async function importApp(id) {
 
 	// If app creation failed
 	if (!response.ok) {
-		document.getElementById('alert').innerText =`App ${requests.preflight.body.name} couldn't be created.`;
+		document.getElementById('alert').innerText = `App ${requests.preflight.body.name} couldn't be created.`;
 		return false;
 	}
 
 	const app = await response.json();
+	let flaggedName;
 
 	/**
 	 * Send all generated requests in sequence to Integromat
@@ -103,7 +104,13 @@ async function importApp(id) {
 	for (const request of requests.requests) {
 
 		// Fire the request and catch the response
-		const response = await fetch(`https://api.integromat.com/v1/app/${app.name}${request.endpoint}`, {
+		let uri = `https://api.integromat.com/v1/app/${app.name}${request.endpoint}`;
+
+		if (request.flag && request.flag === 'FLAG') {
+			uri = uri.replace('___FLAG_NAME___', flaggedName);
+		}
+
+		const response = await fetch(uri, {
 			method: request.method,
 			headers: {
 				'Content-Type': request.type,
@@ -114,8 +121,12 @@ async function importApp(id) {
 
 		// Stop sending when last request failed
 		if (!response.ok) {
-			document.getElementById('alert').innerText =`Import failed on calling ${request.endpoint}.`;
+			document.getElementById('alert').innerText = `Import failed on calling ${request.endpoint}.`;
 			return false;
+		}
+
+		if (request.flag && request.flag === 'NEW_FLAG') {
+			flaggedName = (await response.json()).name
 		}
 
 		progressBar.value++;

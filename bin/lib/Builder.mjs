@@ -39,6 +39,7 @@ export default {
 			requests.push({
 				endpoint: `/connection`,
 				method: 'POST',
+				flag: 'NEW_FLAG',
 				type: 'application/json',
 				body: {
 					type: connection.type,
@@ -48,40 +49,45 @@ export default {
 
 			// Parameters
 			requests.push({
-				endpoint: `/connection/${connection.name}/parameters`,
+				endpoint: `/connection/___FLAG_NAME___/parameters`,
 				method: 'PUT',
+				flag: 'FLAG',
 				type: 'application/jsonc',
 				body: connection.parameters
 			});
 
 			// Api
 			requests.push({
-				endpoint: `/connection/${connection.name}/api`,
+				endpoint: `/connection/___FLAG_NAME___/api`,
 				method: 'PUT',
+				flag: 'FLAG',
 				type: 'application/jsonc',
 				body: connection.api
 			});
 
 			// Common
 			requests.push({
-				endpoint: `/connection/${connection.name}/common`,
+				endpoint: `/connection/___FLAG_NAME___/common`,
 				method: 'PUT',
+				flag: 'FLAG',
 				type: 'application/json',
 				body: connection.common
 			});
 
 			// Scope
 			requests.push({
-				endpoint: `/connection/${connection.name}/scope`,
+				endpoint: `/connection/___FLAG_NAME___/scope`,
 				method: 'PUT',
+				flag: 'FLAG',
 				type: 'application/json',
 				body: connection.scope
 			});
 
 			// Scopes
 			requests.push({
-				endpoint: `/connection/${connection.name}/scopes`,
+				endpoint: `/connection/___FLAG_NAME___/scopes`,
 				method: 'PUT',
+				flag: 'FLAG',
 				type: 'application/json',
 				body: connection.scopes
 			});
@@ -132,6 +138,7 @@ export default {
 				endpoint: `/webhook`,
 				method: 'POST',
 				type: 'application/json',
+				flag: 'NEW_FLAG',
 				body: {
 					name: hook.name,
 					type: hook.type,
@@ -142,32 +149,36 @@ export default {
 
 			// Parameters
 			requests.push({
-				endpoint: `/webhook/${hook.name}/parameters`,
+				endpoint: `/webhook/___FLAG_NAME___/parameters`,
 				method: 'PUT',
+				flag: 'FLAG',
 				type: 'application/jsonc',
 				body: hook.parameters
 			});
 
 			// Api
 			requests.push({
-				endpoint: `/webhook/${hook.name}/api`,
+				endpoint: `/webhook/___FLAG_NAME___/api`,
 				method: 'PUT',
+				flag: 'FLAG',
 				type: 'application/jsonc',
 				body: hook.api
 			});
 
 			// Attach
 			requests.push({
-				endpoint: `/webhook/${hook.name}/attach`,
+				endpoint: `/webhook/___FLAG_NAME___/attach`,
 				method: 'PUT',
+				flag: 'FLAG',
 				type: 'application/jsonc',
 				body: hook.attach
 			});
 
 			// Detach
 			requests.push({
-				endpoint: `/webhook/${hook.name}/detach`,
+				endpoint: `/webhook/___FLAG_NAME___/detach`,
 				method: 'PUT',
+				flag: 'FLAG',
 				type: 'application/jsonc',
 				body: hook.detach
 			});
