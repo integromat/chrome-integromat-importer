@@ -17,7 +17,7 @@ async function route() {
 	// If there's no apiKey...
 	if (!apiKey) {
 		// ... Is user not on API settings ... ?
-		if (currentTab.url !== 'https://www.integromat.com/user#tab:api') {
+		if (currentTab.url !== 'https://www.integromat.com/user#tab:api' && currentTab.url !== 'https://www.integromat.com/user/api') {
 			// ... If is not logged in but on login page
 			if (currentTab.url.match('integromat.com/.*/login')) {
 				location.replace("./html/integromatLogin.html")
