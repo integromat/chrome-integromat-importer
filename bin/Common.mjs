@@ -25,6 +25,22 @@ export default {
 		})
 	},
 
+	getLastErrors: async () => {
+		return await new Promise((resolve) => {
+			chrome.storage.local.get(['lastErrors'], async function (result) {
+				resolve(result.lastErrors)
+			});
+		})
+	},
+
+	setLastErrors: async (errors) => {
+		return await new Promise((resolve) => {
+			chrome.storage.local.set({ 'lastErrors': errors }, async function () {
+				resolve();
+			});
+		})
+	},
+
 	getUserData: async (apiKey) => {
 		return (await (await fetch('https://api.integromat.com/v1/whoami', {
 			headers: {

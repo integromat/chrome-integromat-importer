@@ -149,4 +149,5 @@ async function importApp(id) {
 		body.innerHTML += `<a class="doc" target="_blank" href='https://docs.integromat.com/apps/primary/zapier-importer/errors/${error.code}'>${error.description} - Severity: ${error.severity}</a>`
 	})
 	body.innerHTML += "</div>"
+	await Common.setLastErrors(requests.errors)
 }
