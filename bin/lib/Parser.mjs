@@ -20,7 +20,6 @@ import Webhook from './subparsers/modules/Webhook.mjs';
 class Parser {
 
 	static parseApp(raw) {
-		console.log('Parsing source JSON');
 		const app = {};
 		app.countries = [];
 		app.private = true;

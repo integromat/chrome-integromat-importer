@@ -1,6 +1,5 @@
 export default {
 	buildRequestTree(app) {
-		console.log('Building requests.');
 		const version = 1;
 		const requests = [];
 		const errors = app.errors;
@@ -133,7 +132,6 @@ export default {
 		for (const hook of app.webhooks) {
 
 			// New webhook
-			console.log(`/app/webhooks/${hook.name}`);
 			requests.push({
 				endpoint: `/webhook`,
 				method: 'POST',
