@@ -68,7 +68,8 @@ async function importApp(id) {
 	// Show import content and the progress bar
 	body.innerHTML = `
 	<div class="p-15">
-	<h1>Importing! Don't close</h1>
+	<h1>Importing! Don't close close this popup</h1>
+	<h3>Don't click away as it will result breaking the import!</h3>
 	<progress id='progress' max="${requests.requests.length + 1}" value="0"></progress>
 	<div id="alert"></div>
 	</div>
@@ -90,7 +91,7 @@ async function importApp(id) {
 
 	// If app creation failed
 	if (!response.ok) {
-		document.getElementById('alert').innerHTML = `<span>App ${requests.preflight.body.name} couldn't be created.</span>`;
+		document.getElementById('alert').innerHTML = `<span>App ${requests.preflight.body.name} couldn't be created. ${(await response.json()).message}</span>`;
 		return false;
 	}
 
@@ -121,7 +122,7 @@ async function importApp(id) {
 
 		// Stop sending when last request failed
 		if (!response.ok) {
-			document.getElementById('alert').innerHTML = `<span>Import failed on calling ${request.endpoint}.</span>`;
+			document.getElementById('alert').innerHTML = `<span>Import failed on calling ${request.endpoint}. ${(await response.json()).message}</span>`;
 			return false;
 		}
 
@@ -142,8 +143,10 @@ async function importApp(id) {
 	 */
 	body.innerHTML = `
 	<h1 class="p-15">DONE!</h1>
+	<div class="errors">
 	`
 	requests.errors.forEach(error => {
-		body.innerHTML += `<a class="doc" target="_blank" href='https://docs.integromat.com/apps/primary/zapier-importer/errors/${error.code}'>${error.description} - SEV: ${error.severity}</a>`
+		body.innerHTML += `<a class="doc" target="_blank" href='https://docs.integromat.com/apps/primary/zapier-importer/errors/${error.code}'>${error.description} - Severity: ${error.severity}</a>`
 	})
+	body.innerHTML += "</div>"
 }
