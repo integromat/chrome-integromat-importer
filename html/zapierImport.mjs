@@ -145,9 +145,8 @@ async function importApp(id) {
 	<h1 class="p-15">DONE!</h1>
 	<div class="errors">
 	`
-	requests.errors.forEach(error => {
+	for (const error of requests.errors) {
 		body.innerHTML += `<a class="doc" target="_blank" href='https://docs.integromat.com/apps/primary/zapier-importer/errors/${error.code}'>${error.description} - Severity: ${error.severity}</a>`
-	})
+	}
 	body.innerHTML += "</div>"
-	await Common.setLastErrors(requests.errors)
 }

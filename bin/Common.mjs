@@ -63,6 +63,22 @@ export default {
 				resolve();
 			})
 		})
+	},
+
+	createNewTab: async (url, focus) => {
+		return await new Promise((resolve) => {
+			chrome.tabs.create({ url: url, active: focus }, async function (tab) {
+				resolve(tab);
+			})
+		})
+	},
+
+	executeOnTab: async (tab, code) => {
+		return await new Promise((resolve) => {
+			chrome.tabs.executeScript(tab.id, { code: code }, async function (returned) {
+				resolve(returned);
+			})
+		})
 	}
 
 }
