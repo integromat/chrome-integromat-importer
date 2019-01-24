@@ -144,6 +144,6 @@ async function importApp(id) {
 	<h1 class="p-15">DONE!</h1>
 	`
 	requests.errors.forEach(error => {
-		body.innerHTML += `<a class="doc" href='https://docs.integromat.com/apps/primary/zapier-importer/errors/${error.code}'>${error.description} - SEV: ${error.severity}</a>`
+		body.innerHTML += `<a class="doc" target="_blank" href='https://docs.integromat.com/apps/primary/zapier-importer/errors/${error.code}'>${error.description} - SEV: ${error.severity}</a>`
 	})
 }
