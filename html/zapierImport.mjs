@@ -150,5 +150,6 @@ async function importApp(id) {
 		errorWrapper.innerHTML += `<a class="doc" target="_blank" href="https://docs.integromat.com/apps/primary/zapier-importer/errors/${error.code}">${error.description} - Severity: ${error.severity}</a>`
 	}
 	const newTab = await Common.createNewTab('html/imported.html', false);
-	chrome.tabs.sendMessage(newTab.id, { 'routine': 'setContent', 'content': body.innerHTML })
+	await new Promise(resolve => setTimeout(resolve, 100));
+	chrome.tabs.sendMessage(newTab.id, { routine: 'setErrors', errors: requests.errors }, (response) => { })
 }
