@@ -1,19 +1,69 @@
 <html>
 
 <head>
+	<style>
+		@import url('https://fonts.googleapis.com/css?family=Roboto:300,400&subset=latin-ext');
+		* {
+			box-sizing: border-box;
+		}
+		::-webkit-scrollbar {
+		width: 5px;
+		}
+		::-webkit-scrollbar-track {
+		background: #f1f1f1;
+		}
+		::-webkit-scrollbar-thumb {
+		background: #a0cfe7;
+		}
+		::-webkit-scrollbar-thumb:hover {
+		background: #2f8cbb;
+		}
+		body {
+			margin: 0;
+			padding: 0;
+			color: rgb(51,51,51);
+			font-size: 13px;
+		}
+		header {
+			background: #2f8cbb;
+			padding: 7px 12px 4px;
+			height: 45px;
+		}
+		h1 {
+			font-family: 'Roboto', sans-serif;
+			font-weight: 300;
+		}
+		.p-15 {
+			padding: 15px
+		}
+		a.doc {
+			display: block;
+			text-decoration: none;
+			color: #2f8cbb;
+			border-top: 1px solid #e3e4e8;
+			padding: 10px 15px;
+		}
+	</style>
 	<title>Imported</title>
 </head>
 
 <body>
-	<h1>App Has Been Imported!</h1>
-	<p>
-		The app has been imported successfully.
-		Those errors/warnings were generated during the import.
-		They are linked to the docs, where you cand find more information about what has caused then and how to fix them.
-	</p>
-	<div id='errors'>
-
+	<header>
+		<a href="https://www.integromat.com" target="_blank">
+			<img src="https://static.integromat.com/img/logo-dark.svg" height="30" width="30">
+		</a>
+	</header>
+	<div class="p-15">
+		<h1>App Has Been Imported!</h1>
+		<p>
+			The app has been imported successfully.
+			Those errors/warnings were generated during the import.
+			They are linked to the docs, where you cand find more information about what has caused then and how to fix them.
+		</p>
 	</div>
+	<div id='errors'>
+	</div>
+
 	<script src="imported.js"></script>
 </body>
 
