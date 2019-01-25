@@ -143,10 +143,10 @@ async function importApp(id) {
 	 */
 	body.innerHTML = `
 	<h1 class="p-15">DONE!</h1>
-	<div class="errors">
+	<div id="errors" class="errors"></div>
 	`
+	const errorWrapper = document.getElementById('errors');
 	for (const error of requests.errors) {
-		body.innerHTML += `<a class="doc" target="_blank" href='https://docs.integromat.com/apps/primary/zapier-importer/errors/${error.code}'>${error.description} - Severity: ${error.severity}</a>`
+		errorWrapper.innerHTML += `<a class="doc" target="_blank" href='https://docs.integromat.com/apps/primary/zapier-importer/errors/${error.code}'>${error.description} - Severity: ${error.severity}</a>`
 	}
-	body.innerHTML += "</div>"
 }
