@@ -91,7 +91,7 @@ async function importApp(id) {
 
 	// If app creation failed
 	if (!response.ok) {
-		document.getElementById('alert').innerHTML = `<span>App ${requests.preflight.body.name} couldn't be created. ${(await response.json()).message} <button id='backToList'>Back to the list</button></span>`;
+		document.getElementById('alert').innerHTML = `<span><span>App ${requests.preflight.body.name} couldn't be created. ${(await response.json()).message} </span><button class='danger xs' id='backToList'>Back to the list</button></span>`;
 		document.getElementById('backToList').addEventListener("click", () => { location.replace('../index.html') })
 		return false;
 	}
@@ -123,7 +123,7 @@ async function importApp(id) {
 
 		// Stop sending when last request failed
 		if (!response.ok) {
-			document.getElementById('alert').innerHTML = `<span>Import failed on calling ${request.endpoint}. ${(await response.json()).message} <button id='backToList'>Back to the list</button></span>`;
+			document.getElementById('alert').innerHTML = `<span><span>Import failed on calling ${request.endpoint}. ${(await response.json()).message} </span><button class='danger xs' id='backToList'>Back to the list</button></span>`;
 			document.getElementById('backToList').addEventListener("click", () => { location.replace('../index.html') })
 			return false;
 		}

@@ -131,7 +131,10 @@
 			font-size: 5em;
 			margin: 10px;
 		}
-		#alert span {
+		#alert {
+			margin-bottom: 25px;
+		}
+		#alert > span {
 			position: relative;
 			padding: .75rem 1.25rem;
 			margin-bottom: 0;
@@ -142,6 +145,10 @@
 			border-color: #f9d0d5;
 			margin-top: 15px;
 			display: block;
+		}
+		#alert > span > span {
+			width: 75%;
+			display: inline-block;
 		}
 		.spin {
 			animation:spin 1s linear infinite;
@@ -163,6 +170,33 @@
 		.errors {
 			height: 162px;
 			overflow-y: auto;
+		}
+		button {
+			font-family: 'Roboto', sans-serif;
+			padding: .375rem .75rem;
+			border-radius: .25rem;
+			line-height: 1.5;
+			font-size: 16px;
+			outline: none;
+			cursor: pointer;
+			border: 0;
+		}
+		button.danger {
+			color: #fff;
+			background-color: #d9534f;
+			border-color: #d43f3a;
+			float: right;
+		}
+		button.danger:hover {
+			color: #fff;
+			background-color: #c9302c;
+			border-color: #ac2925;
+		}
+		button.xs {
+			padding: 1px 5px;
+			font-size: 12px;
+			line-height: 1.5;
+			border-radius: 3px;
 		}
 		@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 	</style>
