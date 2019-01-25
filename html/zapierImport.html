@@ -4,15 +4,32 @@
 <head>
 	<style>
 		@import url('https://fonts.googleapis.com/css?family=Roboto:300,400&subset=latin-ext');
+		* {
+			box-sizing: border-box;
+		}
+		::-webkit-scrollbar {
+		width: 5px;
+		}
+		::-webkit-scrollbar-track {
+		background: #f1f1f1;
+		}
+		::-webkit-scrollbar-thumb {
+		background: #a0cfe7;
+		}
+		::-webkit-scrollbar-thumb:hover {
+		background: #2f8cbb;
+		}
 		body {
 			width: 512px;
 			margin: 0 2px;
 			color: rgb(51,51,51);
 			font-size: 13px;
+			height: 330px;
 		}
 		header {
 			background: #2f8cbb;
 			padding: 7px 12px 4px;
+			height: 45px;
 		}
 		h1 {
 			font-family: 'Roboto', sans-serif;
@@ -27,6 +44,12 @@
 		footer {
 			border-top: 1px solid #e3e4e8;
 			padding: 15px;
+			height: 45px;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: #fff;
 		}
 		a.logout {
 			color: #eb5768;
@@ -53,6 +76,7 @@
 		}
 		table {
 			border-collapse: collapse;
+			margin-bottom: 15px;
 		}
 		button {
 			font-family: 'Roboto', sans-serif;
@@ -132,6 +156,14 @@
 			border-top: 1px solid #e3e4e8;
 			padding: 10px 15px;
 		}
+		.table {
+			height: 240px;
+			overflow-y: auto;
+		}
+		.errors {
+			height: 162px;
+			overflow-y: auto;
+		}
 		@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 	</style>
 </head>
@@ -144,8 +176,10 @@
 	</header>
 	<div id="content" class="pb-30">
 		<h2 id="sr"></h2>
-		<table width="100%" id="apps">
-		</table>
+		<div class="table">
+			<table width="100%" id="apps">
+			</table>
+		</div>
 	</div>
 	<footer>
 		<span id="currentUser" class="o-6"></span>
