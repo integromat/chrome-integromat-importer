@@ -3,6 +3,10 @@
 
 <head>
 	<style>
+		@import url('https://fonts.googleapis.com/css?family=Roboto:300,400&subset=latin-ext');
+		* {
+			box-sizing: border-box;
+		}
 		body {
 			width: 512px;
 			margin: 0 2px;
@@ -19,11 +23,12 @@
 		h1 {
 			font-family: 'Roboto', sans-serif;
 			font-weight: 300;
+			margin-top: 45px;
 		}
 
 		.center {
 			text-align: center;
-			margin-top: 75px;
+			margin-top: 30px;
 		}
 
 		.pb-30 {
@@ -35,6 +40,46 @@
 			font-size: 5em;
 			margin: 10px;
 		}
+		button {
+			font-family: 'Roboto', sans-serif;
+			padding: .375rem .75rem;
+			border-radius: .25rem;
+			line-height: 1.5;
+			font-size: 16px;
+			outline: none;
+			cursor: pointer;
+			margin-bottom: 19px;
+		}
+		button.primary {
+			background: #2f8cbb;
+			border: 1px solid #2f8cbb;
+			color: #fff;
+		}
+		button.primary:hover {
+			color: #fff;
+			background-color: #27759c;
+			border-color: #256d92;
+		}
+		footer {
+			border-top: 1px solid #e3e4e8;
+			padding: 15px;
+		}
+		a.logout {
+			color: #eb5768;
+			cursor: pointer;
+		}
+		a.logout:hover, a.logout:focus, a.logout:active {
+			color: #A43C48;
+		}
+		.o-6 {
+			opacity: .6;
+		}
+		.f-right {
+			float: right;
+		}
+		#currentMode {
+			margin-right: 3px;
+		}
 	</style>
 </head>
 
@@ -45,19 +90,19 @@
 		</a>
 	</header>
 	<div class="center pb-30">
-		<h1 class="h-icon">&#9919;</h1>
+		<h1>Almost there</h1>
 		<p class="pb-30">
-			It looks like you're not Zapier and the Zapier mode is set.
-			Either change the mode in the footer orgo to Zapier.
+			It looks like you're not on Zapier and the Zapier mode is set.
+			<br>
+			Either change the mode in the footer or go to Zapier.
 		</p>
 		<button class="primary" type="button" id="getStarted">Visit Zapier</button>
 	</div>
 	<footer>
 		<span id="currentUser" class="o-6"></span>
-		<a class="logout f-right" id="buttonLogout">Logout &raquo;</a>
-		<br>
-		<span id="currentMode" class="o-6"></span>
-		<a class="logout f-right" id="buttonChangeMode">Change Mode &raquo;</a>
+		<a class="logout" id="buttonLogout">(Logout)</a>
+		<a class="logout f-right" id="buttonChangeMode">(Change)</a>
+		<span id="currentMode" class="o-6 f-right"></span>
 	</footer>
 
 	<script type="module" src="./zapierNotOn.mjs"></script>

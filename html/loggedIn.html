@@ -31,6 +31,11 @@
 			font-size: 16px;
 			outline: none;
 			cursor: pointer;
+			top: 2px;
+			position: relative;
+			margin-left: -4px;
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
 		}
 		button.primary {
 			background: #2f8cbb;
@@ -66,6 +71,20 @@
 		.f-right {
 			float: right;
 		}
+		.custom-select {
+			display: inline-block;
+			width: 50%;
+			height: calc(2.25rem + 2px);
+			padding: .375rem 1.75rem .375rem .75rem;
+			line-height: 1.5;
+			color: #495057;
+			vertical-align: middle;
+			background-size: 8px 10px;
+			border: 1px solid #cecece;
+			border-radius: .25rem;
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
 	</style>
 </head>
 
@@ -77,20 +96,18 @@
 	</header>
 	<div class="center pb-30">
 		<h1 id="welcome">You are all set!</h1>
-		<p class="pb-30">Now you can start importing apps!</p>
+		<p class="pb-30">Now you can start importing apps! Choose importing mode:</p>
 		<form>
-			<span>Choose importing mode:</span>
-			<select id="modeselect" name="mode">
+			<select class="custom-select" id="modeselect" name="mode">
 				<option value="zapier">Zapier</option>
 			</select>
+			<button type="button" class="primary" id="letsgo">Set mode</button>
 		</form>
-		<button type="button" class="primary" id="letsgo">Set mode</button>
 	</div>
 	<footer>
 		<span id="currentUser" class="o-6"></span>
-		<a class="logout f-right" id="buttonLogout">Logout &raquo;</a>
-		<br>
-		<span id="currentMode" class="o-6">Mode not set</span>
+		<a class="logout" id="buttonLogout">(Logout)</a>
+		<span id="currentMode" class="o-6 f-right">Mode not set</span>
 	</footer>
 	<script type="module" src="./loggedIn.mjs"></script>
 </body>

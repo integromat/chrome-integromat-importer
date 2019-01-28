@@ -54,6 +54,9 @@
 		p {
 			margin-bottom: 42px;
 		}
+		#currentMode {
+			margin-right: 3px;
+		}
 	</style>
 </head>
 
@@ -69,10 +72,9 @@
 	</div>
 	<footer>
 		<span id="currentUser" class="o-6"></span>
-		<a class="logout f-right" id="buttonLogout">Logout &raquo;</a>
-		<br>
-		<span id="currentMode" class="o-6"></span>
-		<a class="logout f-right" id="buttonChangeMode">Change Mode &raquo;</a>
+		<a class="logout" id="buttonLogout">(Logout)</a>
+		<a class="logout f-right" id="buttonChangeMode">(Change)</a>
+		<span id="currentMode" class="o-6 f-right"></span>
 	</footer>
 
 	<script type="module" src="./zapierLogin.mjs"></script>

@@ -7,8 +7,8 @@ import Common from '../bin/Common.mjs'
 (async () => {
 	document.getElementById("buttonLogout").addEventListener("click", Common.logout);
 	document.getElementById("buttonChangeMode").addEventListener("click", Common.demode);
-	document.getElementById("currentUser").innerText = `Currently logged in as ${(await Common.getUserData(await Common.getStoredApiKey())).name}.`;
-	document.getElementById("currentMode").innerText = `Current import mode is ${await Common.getMode()}.`
+	document.getElementById("currentUser").innerText = `Logged in as ${(await Common.getUserData(await Common.getStoredApiKey())).name}.`;
+	document.getElementById("currentMode").innerText = `Mode: ${await Common.getMode()}`
 })();
 
 /**
@@ -147,14 +147,14 @@ async function importApp(id) {
 	 */
 	body.innerHTML = `
 	<h1 class="p-15">DONE!</h1>
-	<div id="errors" class="errors"></div>
+	<ol id="errors" class="errors"></ol>
 	`
 	const errorWrapper = document.getElementById('errors');
 	for (const error of requests.errors) {
-		errorWrapper.innerHTML += `<div>
+		errorWrapper.innerHTML += `<li>
 			<a class="doc" target="_blank" href="https://docs.integromat.com/apps/primary/integromat-importer/errors/${error.code}">${error.description} - Severity: ${error.severity}</a>
 			<a target="_blank" href="https://docs.integromat.com/apps/primary/integromat-importer/errors/${error.code}">Open in Docs</a>
-		</div>`
+		</li>`
 	}
 	const newTab = await Common.createNewTab('html/imported.html', false);
 	await Common.sendMessageToTab(newTab, { routine: 'setErrors', errors: requests.errors })
