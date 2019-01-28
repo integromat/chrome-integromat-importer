@@ -148,15 +148,13 @@ async function importApp(id) {
 	<div id="errors" class="errors"></div>
 	`
 	const errorWrapper = document.getElementById('errors');
-	let count = 0;
 	for (const error of requests.errors) {
 		errorWrapper.innerHTML += `<div>
 			<a class="doc" target="_blank" href="https://docs.integromat.com/apps/primary/zapier-importer/errors/${error.code}">${error.description} - Severity: ${error.severity}</a>
 			<a target="_blank" href="https://docs.integromat.com/apps/primary/zapier-importer/errors/${error.code}">Open in Docs</a>
 		</div>`
-		count++;
 	}
 	const newTab = await Common.createNewTab('html/imported.html', false);
-	await new Promise(resolve => setTimeout(resolve, 100));
-	chrome.tabs.sendMessage(newTab.id, { routine: 'setErrors', errors: requests.errors }, (response) => { })
+	await Common.sendMessageToTab(newTab, { routine: 'setErrors', errors: requests.errors })
+	await Common.updateTab(newTab, { "active": true })
 }

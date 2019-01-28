@@ -1,4 +1,4 @@
-chrome.runtime.onMessage.addListener((message) => {
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 	if (message.routine === 'setErrors') {
 		const errorWrapper = document.getElementById('errors');
 		for (const error of message.errors) {
@@ -7,5 +7,6 @@ chrome.runtime.onMessage.addListener((message) => {
 			<a target="_blank" href="https://docs.integromat.com/apps/primary/zapier-importer/errors/${error.code}">Open in Docs</a>
 			</div>`
 		}
+		sendResponse({ status: 0 })
 	}
 })

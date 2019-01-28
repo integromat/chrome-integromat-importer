@@ -68,7 +68,12 @@ export default {
 	createNewTab: async (url, focus) => {
 		return await new Promise((resolve) => {
 			chrome.tabs.create({ url: url, active: focus }, async function (tab) {
-				resolve(tab);
+				chrome.tabs.onUpdated.addListener(async function listener(tabId, info) {
+					if (info.status === 'complete' && tabId == tab.id) {
+						chrome.tabs.onUpdated.removeListener(listener)
+						resolve(tab);
+					}
+				})
 			})
 		})
 	},
@@ -77,6 +82,22 @@ export default {
 		return await new Promise((resolve) => {
 			chrome.tabs.executeScript(tab.id, { code: code }, async function (returned) {
 				resolve(returned);
+			})
+		})
+	},
+
+	sendMessageToTab: async (tab, message) => {
+		return await new Promise((resolve) => {
+			chrome.tabs.sendMessage(tab.id, message, (response) => {
+				resolve(response)
+			})
+		})
+	},
+
+	updateTab: async (tab, updateBundle) => {
+		return await new Promise((resolve) => {
+			chrome.tabs.update(tab.id, updateBundle, () => {
+				resolve();
 			})
 		})
 	}
