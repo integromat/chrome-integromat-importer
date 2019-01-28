@@ -9,6 +9,16 @@ export default {
 		location.replace("../index.html")
 	},
 
+	demode: async () => {
+		await new Promise((resolve) => {
+			chrome.storage.local.remove(['imt_mode'], function () {
+				resolve();
+			})
+		});
+		location.replace("../index.html")
+	},
+
+
 	getStoredApiKey: async () => {
 		return await new Promise((resolve) => {
 			chrome.storage.local.get(['imt_apiKey'], async function (result) {
@@ -20,6 +30,22 @@ export default {
 	setStoredApiKey: async (apiKey) => {
 		return await new Promise((resolve) => {
 			chrome.storage.local.set({ 'imt_apiKey': apiKey }, async function () {
+				resolve();
+			});
+		})
+	},
+
+	getMode: async () => {
+		return await new Promise((resolve) => {
+			chrome.storage.local.get(['imt_mode'], async function (result) {
+				resolve(result.imt_mode)
+			});
+		})
+	},
+
+	setMode: async (mode) => {
+		return await new Promise((resolve) => {
+			chrome.storage.local.set({ 'imt_mode': mode }, async function () {
 				resolve();
 			});
 		})

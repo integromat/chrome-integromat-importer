@@ -9,3 +9,12 @@ import Common from '../bin/Common.mjs'
 	document.getElementById("currentUser").innerText = `Currently logged in as ${(await Common.getUserData(await Common.getStoredApiKey())).name}.`;
 	document.getElementById("currentMode").innerText = `Current import mode is ${await Common.getMode()}.`
 })();
+
+document.getElementById("getStarted").addEventListener("click", callLanding);
+
+// Redirect current tab to API settings in Integromat and reroute
+async function callLanding() {
+	const currentTab = await Common.getCurrentTab();
+	await Common.setTabUrl(currentTab.id, 'https://zapier.com');
+	location.replace("../index.html");
+}

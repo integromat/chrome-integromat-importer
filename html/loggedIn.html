@@ -77,12 +77,20 @@
 	</header>
 	<div class="center pb-30">
 		<h1 id="welcome">You are all set!</h1>
-		<p class="pb-30">Now you can start importing apps! Just one last thing. Go to Zapiers' site.</p>
-		<button type="button" class="primary" id="letsgo">Let's import!</button>
+		<p class="pb-30">Now you can start importing apps!</p>
+		<form>
+			<span>Choose importing mode:</span>
+			<select id="modeselect" name="mode">
+				<option value="zapier">Zapier</option>
+			</select>
+		</form>
+		<button type="button" class="primary" id="letsgo">Set mode</button>
 	</div>
 	<footer>
 		<span id="currentUser" class="o-6"></span>
 		<a class="logout f-right" id="buttonLogout">Logout &raquo;</a>
+		<br>
+		<span id="currentMode" class="o-6">Mode not set</span>
 	</footer>
 	<script type="module" src="./loggedIn.mjs"></script>
 </body>
