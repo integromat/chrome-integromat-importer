@@ -1,5 +1,5 @@
-import Parser from './lib/Parser.mjs';
-import Builder from './lib/Builder.mjs';
+import Parser from './ZapierImporter/Parser.mjs';
+import Builder from './ZapierImporter/Builder.mjs';
 
 export default {
 

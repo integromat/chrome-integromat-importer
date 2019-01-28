@@ -1,4 +1,4 @@
-import Importer from '../bin/Importer.mjs'
+import Importer from '../bin/ZapierImporter.mjs'
 import Common from '../bin/Common.mjs'
 
 /**
