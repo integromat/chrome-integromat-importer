@@ -12,7 +12,7 @@ import Common from '../bin/Common.mjs'
  */
 document.getElementById("letsgo").addEventListener("click", redirect);
 
-// Redirect current tab to Zapier and reroute
+// Set mode and reroute
 async function redirect() {
 	const select = document.getElementById("modeselect")
 	await Common.setMode(select.value)

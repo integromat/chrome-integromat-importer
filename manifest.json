@@ -1,7 +1,7 @@
 {
-	"name": "Integromat Apps Importer",
+	"name": "Integromat Importer",
 	"version": "1.0.0",
-	"description": "Integromat Apps Importer allows you to import apps by a single click.",
+	"description": "Integromat Importer allows you to import apps to Integromat by in a few clicks.",
 	"manifest_version": 2,
 	"background": {
 		"scripts": [
