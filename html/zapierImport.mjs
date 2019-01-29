@@ -69,8 +69,8 @@ async function importApp(id) {
 	// Show import content and the progress bar
 	body.innerHTML = `
 	<div class="p-15">
-	<h1>Importing! Don't close this popup</h1>
-	<h3>Don't click away as it will result breaking the import!</h3>
+	<h1>Importing! Don't close this pop-up!</h1>
+	<h3>Just wait. Clicking to something else will result in breaking up the import.</h3>
 	<progress id='progress' max="${requests.requests.length + 1}" value="0"></progress>
 	<div id="alert"></div>
 	</div>

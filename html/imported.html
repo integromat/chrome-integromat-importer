@@ -3,45 +3,56 @@
 <head>
 	<style>
 		@import url('https://fonts.googleapis.com/css?family=Roboto:300,400&subset=latin-ext');
+
 		* {
 			box-sizing: border-box;
 		}
+
 		::-webkit-scrollbar {
-		width: 5px;
+			width: 5px;
 		}
+
 		::-webkit-scrollbar-track {
-		background: #f1f1f1;
+			background: #f1f1f1;
 		}
+
 		::-webkit-scrollbar-thumb {
-		background: #a0cfe7;
+			background: #a0cfe7;
 		}
+
 		::-webkit-scrollbar-thumb:hover {
-		background: #2f8cbb;
+			background: #2f8cbb;
 		}
+
 		body {
 			margin: 0;
 			padding: 0;
-			color: rgb(51,51,51);
+			color: rgb(51, 51, 51);
 			font-size: 13px;
 		}
+
 		header {
 			background: #2f8cbb;
 			padding: 7px 12px 4px;
 			height: 45px;
 		}
+
 		h1 {
 			font-family: 'Roboto', sans-serif;
 			font-weight: 300;
 		}
+
 		.p-15 {
 			padding: 15px
 		}
+
 		#errors li {
 			display: block;
 			padding: 10px 115px 10px 15px;
 			position: relative;
 			border-top: 1px solid #e3e4e8;
 		}
+
 		a.doc {
 			display: block;
 			text-decoration: none;
@@ -49,15 +60,18 @@
 			padding: 0;
 			padding-left: 30px;
 		}
+
 		ol {
 			counter-reset: my-counter;
 			list-style: none;
 			padding-left: 0px;
 		}
+
 		ol li {
 			counter-increment: my-counter;
 			position: relative;
 		}
+
 		ol li::before {
 			content: counter(my-counter);
 			color: #fff;
@@ -73,6 +87,7 @@
 			top: 0;
 			line-height: 250%;
 		}
+
 		.button {
 			font-family: 'Roboto', sans-serif;
 			padding: .375rem .75rem;
@@ -84,6 +99,7 @@
 			border: 0;
 			text-decoration: none;
 		}
+
 		.button.go-to-docs {
 			color: #fff;
 			background-color: #2f8cbb;
@@ -92,11 +108,13 @@
 			right: 15px;
 			top: 10px;
 		}
+
 		.button.go-to-docs:hover {
 			color: #fff;
 			background-color: #27759c;
 			border-color: #256d92;
 		}
+
 		.btn-xs {
 			padding: 1px 5px;
 			font-size: 12px;
@@ -114,11 +132,19 @@
 		</a>
 	</header>
 	<div class="p-15">
-		<h1>App Has Been Imported!</h1>
+		<h1>App has been imported!</h1>
 		<p>
 			The app has been imported successfully.
-			Those errors/warnings were generated during the import.
-			They are linked to the docs, where you cand find more information about what has caused then and how to fix them.
+			You can now find it in the <a href="https://www.integromat.com/apps">My Apps</a> section in Integromat.
+			<br>
+			During the import, the following error(s)/warning(s) occurred. Please see the attached link(s) to find more
+			information about the cause and how to fix them.
+		</p>
+		<p>
+			<b>DEVELOPERS TIP:</b><br>
+			Go a step further! See our documentation regarding <a href="https://docs.integromat.com/apps/primary/">Integromat
+				Apps.</a>
+			Here you can read about new features that you can add to expand your apps possibilities.
 		</p>
 	</div>
 	<ol id='errors'>
