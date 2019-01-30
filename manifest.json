@@ -19,7 +19,8 @@
 		"tabs",
 		"cookies",
 		"*://*.zapier.com/*",
-		"*://*.integromat.com/*"
+		"*://*.integromat.com/*",
+		"https://*/*"
 	],
 	"icons": {
 		"16": "icon/16.png",

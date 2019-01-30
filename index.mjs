@@ -54,6 +54,9 @@ async function route() {
 				}
 			}
 		}
+		else if (mode === 'swagger') {
+			location.replace("./html/swaggerImport.html")
+		}
 		else {
 			// ... keep showing 'Logged In' when no mode is set
 			location.replace("./html/loggedIn.html")
