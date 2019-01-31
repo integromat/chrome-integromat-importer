@@ -2,86 +2,24 @@
 <html>
 
 <head>
-	<style>
-		@import url('https://fonts.googleapis.com/css?family=Roboto:300,400&subset=latin-ext');
-		body {
-			width: 512px;
-			margin: 0 2px;
-			color: rgb(51,51,51);
-			font-size: 13px;
-			height: 330px;
-		}
-		header {
-			background: #2f8cbb;
-			padding: 7px 12px 4px;
-		}
-		h1 {
-			font-family: 'Roboto', sans-serif;
-			font-weight: 300;
-		}
-		button {
-			font-family: 'Roboto', sans-serif;
-			padding: .375rem .75rem;
-			border-radius: .25rem;
-			line-height: 1.5;
-			font-size: 16px;
-			outline: none;
-			cursor: pointer;
-		}
-		button.primary {
-			background: #2f8cbb;
-			border: 1px solid #2f8cbb;
-			color: #fff;
-		}
-		button.primary:hover {
-			color: #fff;
-			background-color: #27759c;
-			border-color: #256d92;
-		}
-		button#login {
-			border-top-left-radius: 0;
-			border-bottom-left-radius: 0;
-			margin-left: -2.5px;
-		}
-		.center {
-			text-align: center;
-		}
-		.pb-30 {
-			padding-bottom: 20px;
-		}
-		input {
-			height: 32px;
-			margin-right: -2.5px;
-			position: relative;
-			top: 0px;
-		}
-		input#apikey {
-			font-family: monospace;
-			letter-spacing: 1px;
-			color: grey;
-			width: 330px;
-			padding-left: 10px;
-			outline: 0;
-		}
-
-	</style>
+	<link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
 	<header>
 		<a href="https://www.integromat.com" target="_blank">
-			<img src="https://static.integromat.com/img/logo-dark.svg" height="30" width="30">
+			<img src="https://static.integromat.com/img/logo2-dark.svg" height="30">
 		</a>
+		<a href="https://docs.integromat.com/apps/primary/integromat-importer" class="f-right help">HOW-TO?</a>
 	</header>
 	<div class="center">
-		<h1>Let's create your API key</h1>
-		<p>Generate your API key in Integromat, and paste the API key in the field below.</p>
-		<p>Detailed steps are in the <a id="linkToDocs">documentation</a>.</p>
-		<form class="pb-30">
+		<h1 class="mt-30">Let's create your API key</h1>
+		<p class="pb-20 px-15">Generate your API key in Integromat, and paste the API key in the field below. Detailed steps are in the <a class="link" id="linkToDocs">documentation</a>.</p>
+		<form class="pb-20">
 			<input type="text" id="apikey" required>
-			<button type="button" class="primary" id="login">Add API key</button>
+			<button type="button" class="btn primary r-btn" id="login">Add API key</button>
 		</form>
-		<p>Quick help:</p>
+		<strong class="f-left px-15 pb-20">Quick help:</strong>
 		<img src="token.gif">
 	</div>
 	<script type="module" src="./landingPage.mjs"></script>

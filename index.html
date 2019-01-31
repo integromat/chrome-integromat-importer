@@ -2,53 +2,18 @@
 <html>
 
 <head>
-	<style>
-		@import url('https://fonts.googleapis.com/css?family=Roboto:300,400&subset=latin-ext');
-		* {
-			box-sizing: border-box;
-		}
-		body {
-			width: 512px;
-			margin: 0 2px;
-			color: rgb(51,51,51);
-			font-size: 13px;
-			height: 330px;
-		}
-		header {
-			background: #2f8cbb;
-			padding: 7px 12px 4px;
-		}
-		h1 {
-			font-family: 'Roboto', sans-serif;
-			font-weight: 300;
-		}
-		.center {
-			text-align: center;
-			margin-top: 75px;
-		}
-		.pb-30 {
-			padding-bottom: 20px;
-		}
-		.h-icon {
-			color: #cfe7f3;
-			font-size: 5em;
-			margin: 10px;
-		}
-		.spin {
-			animation:spin 1s linear infinite;
-		}
-		@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-	</style>
+	<link rel="stylesheet" href="html/style.css"/>
 </head>
 
 <body>
 	<header>
 		<a href="https://www.integromat.com" target="_blank">
-			<img src="https://static.integromat.com/img/logo-dark.svg" height="30" width="30">
+			<img src="https://static.integromat.com/img/logo2-dark.svg" height="30">
 		</a>
+		<a href="https://docs.integromat.com/apps/primary/integromat-importer" class="f-right help">HOW-TO?</a>
 	</header>
-	<div class="p-15 center pb-30">
-		<h1 class="h-icon spin">&#8635;</h1>
+	<div class="p-15 center">
+		<h1 class="h-icon spin mt-70">&#8635;</h1>
 	</div>
 	<script type="module" src="index.mjs"></script>
 </body>

@@ -1,135 +1,16 @@
 <html>
 
 <head>
-	<style>
-		@import url('https://fonts.googleapis.com/css?family=Roboto:300,400&subset=latin-ext');
-
-		* {
-			box-sizing: border-box;
-		}
-
-		::-webkit-scrollbar {
-			width: 5px;
-		}
-
-		::-webkit-scrollbar-track {
-			background: #f1f1f1;
-		}
-
-		::-webkit-scrollbar-thumb {
-			background: #a0cfe7;
-		}
-
-		::-webkit-scrollbar-thumb:hover {
-			background: #2f8cbb;
-		}
-
-		body {
-			margin: 0;
-			padding: 0;
-			color: rgb(51, 51, 51);
-			font-size: 13px;
-		}
-
-		header {
-			background: #2f8cbb;
-			padding: 7px 12px 4px;
-			height: 45px;
-		}
-
-		h1 {
-			font-family: 'Roboto', sans-serif;
-			font-weight: 300;
-		}
-
-		.p-15 {
-			padding: 15px
-		}
-
-		#errors li {
-			display: block;
-			padding: 10px 115px 10px 15px;
-			position: relative;
-			border-top: 1px solid #e3e4e8;
-		}
-
-		a.doc {
-			display: block;
-			text-decoration: none;
-			color: #2f8cbb;
-			padding: 0;
-			padding-left: 30px;
-		}
-
-		ol {
-			counter-reset: my-counter;
-			list-style: none;
-			padding-left: 0px;
-		}
-
-		ol li {
-			counter-increment: my-counter;
-			position: relative;
-		}
-
-		ol li::before {
-			content: counter(my-counter);
-			color: #fff;
-			background: #2f8cbb;
-			text-align: center;
-			padding: 2px 5px;
-			margin-right: 10px;
-			width: 20px;
-			display: block;
-			position: absolute;
-			left: 0;
-			height: 100%;
-			top: 0;
-			line-height: 250%;
-		}
-
-		.button {
-			font-family: 'Roboto', sans-serif;
-			padding: .375rem .75rem;
-			border-radius: .25rem;
-			line-height: 1.5;
-			font-size: 16px;
-			outline: none;
-			cursor: pointer;
-			border: 0;
-			text-decoration: none;
-		}
-
-		.button.go-to-docs {
-			color: #fff;
-			background-color: #2f8cbb;
-			border-color: #2f8cbb;
-			position: absolute;
-			right: 15px;
-			top: 10px;
-		}
-
-		.button.go-to-docs:hover {
-			color: #fff;
-			background-color: #27759c;
-			border-color: #256d92;
-		}
-
-		.btn-xs {
-			padding: 1px 5px;
-			font-size: 12px;
-			line-height: 1.5;
-			border-radius: 3px;
-		}
-	</style>
+	<link rel="stylesheet" href="style.css"/>
 	<title>Imported</title>
 </head>
 
-<body>
+<body class="fullsize">
 	<header>
 		<a href="https://www.integromat.com" target="_blank">
-			<img src="https://static.integromat.com/img/logo-dark.svg" height="30" width="30">
+			<img src="https://static.integromat.com/img/logo2-dark.svg" height="30">
 		</a>
+		<a href="https://docs.integromat.com/apps/primary/integromat-importer" class="f-right help">HOW-TO?</a>
 	</header>
 	<div class="p-15">
 		<h1>App has been imported!</h1>

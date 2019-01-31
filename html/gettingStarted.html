@@ -2,68 +2,23 @@
 <html>
 
 <head>
-	<style>
-		@import url('https://fonts.googleapis.com/css?family=Roboto:300,400&subset=latin-ext');
-		* {
-			box-sizing: borde-box;
-		}
-		body {
-			width: 512px;
-			margin: 0 2px;
-			color: rgb(51,51,51);
-			font-size: 13px;
-			height: 330px;
-		}
-		header {
-			background: #2f8cbb;
-			padding: 7px 12px 4px;
-		}
-		h1 {
-			font-family: 'Roboto', sans-serif;
-			font-weight: 300;
-		}
-		button {
-			font-family: 'Roboto', sans-serif;
-			padding: .375rem .75rem;
-			border-radius: .25rem;
-			line-height: 1.5;
-			font-size: 16px;
-			outline: none;
-			cursor: pointer;
-		}
-		button.primary {
-			background: #2f8cbb;
-			border: 1px solid #2f8cbb;
-			color: #fff;
-		}
-		button.primary:hover {
-			color: #fff;
-			background-color: #27759c;
-			border-color: #256d92;
-		}
-		.center {
-			text-align: center;
-			margin-top: 75px;
-		}
-		.pb-30 {
-			padding-bottom: 20px;
-		}
-	</style>
+	<link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
 	<header>
 		<a href="https://www.integromat.com" target="_blank">
-			<img src="https://static.integromat.com/img/logo-dark.svg" height="30" width="30">
+			<img src="https://static.integromat.com/img/logo2-dark.svg" height="30">
 		</a>
+		<a href="https://docs.integromat.com/apps/primary/integromat-importer" class="f-right help">HOW-TO?</a>
 	</header>
 	<div class="center">
-		<h1>Let's get started</h1>
-		<p class="pb-30">
+		<h1 class="mt-70">Let's get started</h1>
+		<p class="pb-20 px-15">
 			First, log into your Integromat account and set up your Integromat API access. <br>
-			Full set-up details: <a id="linkToDocs">The Importer by Integromat How-to</a>.
+			Full set-up details: <a class="link" id="linkToDocs">The Importer by Integromat How-to</a>.
 		</p>
-		<button class="primary" type="button" id="getStarted">Get started!</button>
+		<button class="btn primary" type="button" id="getStarted">Get started!</button>
 	</div>
 	<script type="module" src="./gettingStarted.mjs"></script>
 </body>

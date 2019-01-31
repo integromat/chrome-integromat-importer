@@ -2,115 +2,35 @@
 <html>
 
 <head>
-	<style>
-		@import url('https://fonts.googleapis.com/css?family=Roboto:300,400&subset=latin-ext');
-		* {
-			box-sizing: border-box;
-		}
-		body {
-			width: 512px;
-			margin: 0 2px;
-			color: rgb(51,51,51);
-			font-size: 13px;
-			height: 330px;
-		}
-		header {
-			background: #2f8cbb;
-			padding: 7px 12px 4px;
-		}
-		h1 {
-			font-family: 'Roboto', sans-serif;
-			font-weight: 300;
-			margin-top: 50px;
-		}
-		button {
-			font-family: 'Roboto', sans-serif;
-			padding: .375rem .75rem;
-			border-radius: .25rem;
-			line-height: 1.5;
-			font-size: 16px;
-			outline: none;
-			cursor: pointer;
-			top: 2px;
-			position: relative;
-			margin-left: -4px;
-			border-top-left-radius: 0;
-			border-bottom-left-radius: 0;
-		}
-		button.primary {
-			background: #2f8cbb;
-			border: 1px solid #2f8cbb;
-			color: #fff;
-			margin-bottom: 30px;
-		}
-		button.primary:hover {
-			color: #fff;
-			background-color: #27759c;
-			border-color: #256d92;
-		}
-		.center {
-			text-align: center;
-		}
-		.pb-30 {
-			padding-bottom: 20px;
-		}
-		footer {
-			border-top: 1px solid #e3e4e8;
-			padding: 15px;
-		}
-		a.logout {
-			color: #eb5768;
-			cursor: pointer;
-		}
-		a.logout:hover, a.logout:focus, a.logout:active {
-			color: #A43C48;
-		}
-		.o-6 {
-			opacity: .6;
-		}
-		.f-right {
-			float: right;
-		}
-		.custom-select {
-			display: inline-block;
-			width: 50%;
-			height: calc(2.25rem + 2px);
-			padding: .375rem 1.75rem .375rem .75rem;
-			line-height: 1.5;
-			color: #495057;
-			vertical-align: middle;
-			background-size: 8px 10px;
-			border: 1px solid #cecece;
-			border-radius: .25rem;
-			border-top-right-radius: 0;
-			border-bottom-right-radius: 0;
-		}
-	</style>
+	<link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
 	<header>
 		<a href="https://www.integromat.com" target="_blank">
-			<img src="https://static.integromat.com/img/logo-dark.svg" height="30" width="30">
+			<img src="https://static.integromat.com/img/logo2-dark.svg" height="30">
 		</a>
+		<a href="https://docs.integromat.com/apps/primary/integromat-importer" class="f-right help">HOW-TO?</a>
 	</header>
-	<div class="center pb-30">
-		<h1 id="welcome">You are all set!</h1>
-		<p class="pb-30">
+	<div class="center pb-20">
+		<h1 class="mt-30" id="welcome">You are all set!</h1>
+		<p class="pb-30 px-15">
 			This tool will import the apps you have created on other platforms to Integromat.
+		</p>
+		<p class="pb-20">
 			Choose your service below:
 		</p>
-		<form>
+		<form class="pb-20">
 			<select class="custom-select" id="modeselect" name="mode">
 				<option value="zapier">Zapier</option>
 				<option value="swagger" disabled>Swagger (coming soon)</option>
 			</select>
-			<button type="button" class="primary" id="letsgo">Choose</button>
+			<button type="button" class="btn primary r-btn" id="letsgo">Choose</button>
 		</form>
 	</div>
 	<footer>
 		<span id="currentUser" class="o-6"></span>
-		<a class="logout" id="buttonLogout">(Logout)</a>
+		<a class="red" id="buttonLogout">(Logout)</a>
 	</footer>
 	<script type="module" src="./loggedIn.mjs"></script>
 </body>
