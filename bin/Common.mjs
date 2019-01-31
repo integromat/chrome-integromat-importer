@@ -2,7 +2,7 @@ export default {
 
 	logout: async () => {
 		await new Promise((resolve) => {
-			chrome.storage.local.remove(['imt_apiKey'], function () {
+			chrome.storage.local.remove(['imt_apiKey', 'imt_mode'], function () {
 				resolve();
 			})
 		});
