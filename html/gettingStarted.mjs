@@ -12,5 +12,5 @@ async function callLanding() {
 
 async function openDocs() {
 	const currentTab = await Common.getCurrentTab();
-	await Common.setTabUrl(currentTab.id, 'https://docs.integromat.com/apps/primary/integromat-importer');
+	await Common.setTabUrl(currentTab.id, 'https://docs.integromat.com/apps/integromat-importer');
 }

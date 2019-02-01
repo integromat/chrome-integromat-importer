@@ -6,7 +6,7 @@ document.getElementById("linkToDocs").addEventListener("click", openDocs);
 
 async function openDocs() {
 	const currentTab = await Common.getCurrentTab();
-	await Common.setTabUrl(currentTab.id, 'https://docs.integromat.com/apps/primary/integromat-importer#2-set-the-api-key');
+	await Common.setTabUrl(currentTab.id, 'https://docs.integromat.com/apps/integromat-importer#2-set-the-api-key');
 }
 
 /**

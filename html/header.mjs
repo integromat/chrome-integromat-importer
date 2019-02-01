@@ -4,5 +4,5 @@ document.getElementById("howToLink").addEventListener("click", openHelp);
 
 // Redirect current tab to API settings in Integromat and reroute
 async function openHelp() {
-	await Common.createNewTab('https://docs.integromat.com/apps/primary/integromat-importer', true);
+	await Common.createNewTab('https://docs.integromat.com/apps/integromat-importer', true);
 }
