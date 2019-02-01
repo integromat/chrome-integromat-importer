@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<link rel="stylesheet" href="style.css"/>
+	<link rel="stylesheet" href="style.css" />
 </head>
 
 <body id="zapierimport">
@@ -10,12 +10,13 @@
 		<a href="https://www.integromat.com" target="_blank">
 			<img src="https://static.integromat.com/img/logo2-dark.svg" height="30">
 		</a>
-		<a href="https://docs.integromat.com/apps/primary/integromat-importer" class="f-right help">HOW-TO?</a>
+		<a href="https://docs.integromat.com/apps/primary/integromat-importer" id="howToLink" class="f-right help">HOW-TO?</a>
 		<a class="red f-left change-mode" id="buttonChangeMode">&laquo; Back</a>
 	</header>
 	<div id="content" class="pb-20">
 		<h2 id="sr"></h2>
-		<p class="px-15 mt-50">Here is the list of apps you have created on Zapier. All are ready to be imported to Integromat.</p>
+		<p class="px-15 mt-50">Here is the list of apps you have created on Zapier. All are ready to be imported to
+			Integromat.</p>
 		<div class="table">
 			<table width="100%" id="apps">
 			</table>
@@ -27,6 +28,7 @@
 	</footer>
 
 	<script type="module" src="zapierImport.mjs"></script>
+	<script type="module" src="./header.mjs"></script>
 </body>
 
 </html>
