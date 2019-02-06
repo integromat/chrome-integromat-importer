@@ -26,8 +26,9 @@ async function runImport() {
 
 	// Get all needed sources
 	const apiKey = await Common.getStoredApiKey();
-	const requests = IntegromatSwaggerImporterConvert(raw)
+	const requests = await IntegromatSwaggerImporterConvert(raw)
 
+	alert(requests)
 	console.log(requests);
 
 	// Show import content and the progress bar
