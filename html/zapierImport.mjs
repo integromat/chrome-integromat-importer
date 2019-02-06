@@ -15,7 +15,14 @@ import Common from '../bin/Common.mjs'
  */
 (async () => {
 	await listApps();
+	await listCli();
+	document.getElementById("cliLink").addEventListener("click", cliLink);
 })();
+
+async function cliLink() {
+	const currentTab = await Common.getCurrentTab();
+	await Common.setTabUrl(currentTab.id, 'https://docs.integromat.com/apps/integromat-importer/zapier-importer#cli-apps');
+}
 
 /**
  * listApps
@@ -50,6 +57,26 @@ async function listApps() {
 	});
 }
 
+async function listCli() {
+	// Get a Zapiers' JSON containing apps info
+	const apps = await (await fetch('https://zapier.com/api/platform/cli/apps')).json();
+
+	// And show the list of apps
+	apps.objects.forEach(app => {
+		/**
+		 * Creating cells in the root table
+		 */
+		let row = document.createElement('tr');
+
+		let nameCell = document.createElement('td');
+		nameCell.innerText = app.title
+		row.appendChild(nameCell);
+
+		document.getElementById('cli').appendChild(row);
+	});
+}
+
+
 
 
 async function importApp(id) {
@@ -82,8 +109,8 @@ async function importApp(id) {
 	// Show import content and the progress bar
 	body.innerHTML = `
 	<div class="p-15">
-	<h1 class="mt-30">Importing! Don't close this pop-up!</h1>
-	<h3>Just wait. Clicking to something else will result in breaking up the import.</h3>
+	<h1 class="mt-30">Import in progress, please don't click away!</h1>
+	<h3>Your app will be imported in a jiffy. </h3>
 	<progress id='progress' max="${requests.requests.length + 1}" value="0"></progress>
 	<div id="alert"></div>
 	</div>
