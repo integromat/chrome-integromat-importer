@@ -32,6 +32,9 @@ header .help {
 	color: white;
 	margin-top: 4px;
 }
+a {
+    cursor: pointer;
+}
 h1 {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
@@ -96,8 +99,8 @@ footer {
 }
 .btn.go-to-docs {
     color: #fff;
-    background-color: #2f8cbb;
-    border-color: #2f8cbb;
+    background: #d9534f;
+    border: 1px solid #d43f3a;
     position: absolute;
     right: 15px;
     top: 10px;
@@ -105,8 +108,8 @@ footer {
 }
 .btn.go-to-docs:hover {
     color: #fff;
-    background-color: #27759c;
-    border-color: #256d92;
+    background-color: #c9302c;
+    border-color: #ac2925;
 }
 .r-btn {
     border-top-left-radius: 0;
@@ -199,9 +202,8 @@ progress::-webkit-progress-value {
     color: #2f8cbb;
     cursor: pointer;
 }
-a.red {
+.red {
     color: #eb5768;
-    cursor: pointer;
 }
 a.red:hover, a.red:focus, a.red:active {
     color: #A43C48;
@@ -216,17 +218,18 @@ a.red:hover, a.red:focus, a.red:active {
 }
 table {
     border-collapse: collapse;
-    margin-bottom: 15px;
 }
 .table {
-    height: 240px;
+    max-height: 164px;
     overflow-y: auto;
+    border-top: 1px solid #e3e4e8;
+    border-bottom: 1px solid #e3e4e8;
 }
 td {
     padding: 5px 5px 5px 15px;
     border-bottom: 1px solid #e3e4e8;
 }
-tr td:last-child {
+tr td:nth-child(2) {
     text-align: right;
 }
 table tr:last-child td {
@@ -250,10 +253,15 @@ td button:hover {
 tr:hover > td {
     background-color: #f8f8f8;
 }
-#alert {
+table.td-h-40 td {
+    height: 40px;
+}
+#alert,
+.alert {
     margin-bottom: 25px;
 }
-#alert > span {
+#alert > span,
+.alert > span {
     position: relative;
     padding: .75rem 1.25rem;
     margin-bottom: 0;
@@ -264,6 +272,11 @@ tr:hover > td {
     border-color: #f9d0d5;
     margin-top: 15px;
     display: block;
+}
+.alert.success > span {
+    color: #3b591b;
+    background-color: #e3eed6;
+    border-color: #d7e8c6;
 }
 #alert > span > span {
     width: 75%;
@@ -279,9 +292,10 @@ tr:hover > td {
 a.doc {
     display: block;
     text-decoration: none;
-    color: #2f8cbb;
-    border-top: 1px solid #e3e4e8;
+    border-top: 1px solid #f9d0d5;
     padding: 10px 15px;
+    color: #7a2d36;
+    background-color: #fbdde1;
 }
 .spin {
     animation:spin 1s linear infinite;
@@ -304,7 +318,7 @@ ol li {
 ol li::before {
     content: counter(my-counter);
     color: #fff;
-    background: #2f8cbb;
+    background: #d9534f;
     text-align: center;
     padding: 2px 5px;
     margin-right: 10px;
@@ -312,12 +326,12 @@ ol li::before {
     display: block;
     position: absolute;
     left: 0;
-    height: 100%;
+    height: calc(100% - 4px);
     top: 0;
     line-height: 250%;
 }
 .fullsize {
-    width: 100%;
+    width: calc(100% - 4px);
 }
 .fullsize a.doc {
     padding-left: 45px;
@@ -325,4 +339,15 @@ ol li::before {
 }
 #zapierimport #errors li {
     display: none;
+}
+.bolder {
+    font-weight: 900;
+}
+.ico {
+    position: relative;
+    top: 1px;
+    font-size: 1.2em;
+}
+.large {
+    font-size: 1.2em;
 }

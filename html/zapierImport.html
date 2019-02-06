@@ -13,7 +13,7 @@
 		<a href="https://docs.integromat.com/apps/integromat-importer" id="howToLink" class="f-right help">HOW-TO?</a>
 		<a class="red f-left change-mode" id="buttonChangeMode">&laquo; Back</a>
 	</header>
-	<div id="content" class="pb-20">
+	<div id="content">
 		<h2 id="sr"></h2>
 		<p class="px-15 mt-50">Here is the list of apps you have created on Zapier. All are ready to be imported to
 			Integromat.</p>
@@ -21,20 +21,20 @@
 			<table width="100%" id="apps">
 			</table>
 		</div>
-		<p class="px-15 mt-50">
+		<p class="px-15 red">
 			There are also those CLI-built apps under your account.
 			Sadly, it's not possible to import a CLI based app (yet?).
 			You can read more about that <a href="https://docs.integromat.com/apps/integromat-importer/zapier-importer#cli-apps"
-			 id="cliLink">here</a>.
+			 id="cliLink" class="red">here</a>.
 		</p>
 		<div class="table">
-			<table width="100%" id="cli">
+			<table width="100%" id="cli" class="o-6 td-h-40">
 			</table>
 		</div>
 	</div>
 	<footer>
 		<span id="currentUser" class="o-6"></span>
-		<a class="red" id="buttonLogout">(Logout)</a>
+		<a class="link" id="buttonLogout">(Logout)</a>
 	</footer>
 
 	<script type="module" src="zapierImport.mjs"></script>

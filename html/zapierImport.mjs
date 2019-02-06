@@ -109,7 +109,7 @@ async function importApp(id) {
 	// Show import content and the progress bar
 	body.innerHTML = `
 	<div class="p-15">
-	<h1 class="mt-30">Import in progress, please don't click away!</h1>
+	<h1 class="mt-30"><strong class="ico red bolder">!</strong> Import in progress, please don't click away!</h1>
 	<h3>Your app will be imported in a jiffy. </h3>
 	<progress id='progress' max="${requests.requests.length + 1}" value="0"></progress>
 	<div id="alert"></div>
