@@ -139,6 +139,8 @@ async function importApp(id) {
 
 	const app = await response.json();
 	let flaggedName;
+	let rebrand = {};
+	rebrand.webhooks = {};
 
 	/**
 	 * Send all generated requests in sequence to Integromat
@@ -151,6 +153,14 @@ async function importApp(id) {
 
 		if (request.flag && request.flag === 'FLAG') {
 			uri = uri.replace('___FLAG_NAME___', flaggedName);
+		}
+
+		// REBRAND BODY
+		if (request.body.connection) {
+			request.body.connection = rebrand.connection;
+		}
+		if (request.body.webhook) {
+			request.body.webhook = rebrand.webhooks[request.body.webhook];
 		}
 
 		const response = await fetch(uri, {
@@ -171,6 +181,12 @@ async function importApp(id) {
 
 		if (request.flag && request.flag === 'NEW_FLAG') {
 			flaggedName = (await response.json()).name
+			if (request.endpoint.startsWith('/connection')) {
+				rebrand.connection = flaggedName;
+			}
+			else if (request.endpoint.startsWith('/webhook')) {
+				rebrand.webhooks[request.body.name] = flaggedName;
+			}
 		}
 
 		progressBar.value++;

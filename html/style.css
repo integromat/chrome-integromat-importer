@@ -220,7 +220,7 @@ table {
     border-collapse: collapse;
 }
 .table {
-    max-height: 164px;
+    max-height: 275px;
     overflow-y: auto;
     border-top: 1px solid #e3e4e8;
     border-bottom: 1px solid #e3e4e8;
