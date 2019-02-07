@@ -14,21 +14,19 @@ document.getElementById("importSwagger").addEventListener("click", runImport)
 async function runImport() {
 
 	// Show preimport content
+	const url = document.getElementById("swaggerSource").value
 	const body = document.getElementById('content');
 	body.innerHTML = `
 		<div class="p-15 center">
 		<h1 class="h-icon">&#8635;</h1>
 		</div>
 		`
-
-	const url = document.getElementById("swaggerSource").value
 	const raw = await (await fetch(url)).json();
 
 	// Get all needed sources
 	const apiKey = await Common.getStoredApiKey();
 	const requests = await IntegromatSwaggerImporterConvert(raw)
 
-	alert(requests)
 	console.log(requests);
 
 	// Show import content and the progress bar
@@ -64,6 +62,9 @@ async function runImport() {
 
 	const app = await response.json();
 	let flaggedName;
+	let rebrand = {};
+	rebrand.connections = {};
+	rebrand.webhooks = {};
 
 	/**
 	 * Send all generated requests in sequence to Integromat
@@ -76,6 +77,14 @@ async function runImport() {
 
 		if (request.flag && request.flag === 'FLAG') {
 			uri = uri.replace('___FLAG_NAME___', flaggedName);
+		}
+
+		// REBRAND BODY
+		if (request.body.connection) {
+			request.body.connection = connections[connection];
+		}
+		if (request.body.webhook) {
+			request.body.webhook = webhooks[webhook];
 		}
 
 		const response = await fetch(uri, {
@@ -96,6 +105,12 @@ async function runImport() {
 
 		if (request.flag && request.flag === 'NEW_FLAG') {
 			flaggedName = (await response.json()).name
+			if (uri.startsWith('/connection/')) {
+				rebrand.connections[request.body.name] = flaggedName;
+			}
+			else if (uri.startsWith('/webhook/')) {
+				rebrand.webhooks[request.body.name] = flaggedName;
+			}
 		}
 
 		console.log(`Firing: ${request.endpoint}`)
