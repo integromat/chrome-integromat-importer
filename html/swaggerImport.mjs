@@ -72,6 +72,7 @@ async function runImport() {
 	 */
 	for (const request of requests.requests) {
 
+		console.log(`Firing: ${request.endpoint}`)
 		// Fire the request and catch the response
 		let uri = `https://api.integromat.com/v1/app/${app.name}${request.endpoint}`;
 
@@ -81,10 +82,17 @@ async function runImport() {
 
 		// REBRAND BODY
 		if (request.body.connection) {
-			request.body.connection = connections[connection];
+			request.body.connection = rebrand.connections[request.body.connection];
 		}
 		if (request.body.webhook) {
-			request.body.webhook = webhooks[webhook];
+			console.log("REBRAND W")
+			request.body.webhook = rebrand.webhooks[request.body.webhook];
+		}
+
+		let temp
+		if (request.endpoint === '/connection') {
+			temp = request.body.name;
+			delete request.body.name;
 		}
 
 		const response = await fetch(uri, {
@@ -105,19 +113,17 @@ async function runImport() {
 
 		if (request.flag && request.flag === 'NEW_FLAG') {
 			flaggedName = (await response.json()).name
-			if (uri.startsWith('/connection/')) {
-				rebrand.connections[request.body.name] = flaggedName;
+			if (request.endpoint.startsWith('/connection')) {
+				rebrand.connections[temp] = flaggedName;
 			}
-			else if (uri.startsWith('/webhook/')) {
+			else if (request.endpoint.startsWith('/webhook')) {
 				rebrand.webhooks[request.body.name] = flaggedName;
 			}
 		}
-
-		console.log(`Firing: ${request.endpoint}`)
 		progressBar.value++;
 
 		// To prevent rate limit error
-		await new Promise(resolve => setTimeout(resolve, 600));
+		await new Promise(resolve => setTimeout(resolve, 100));
 	}
 
 	/**
