@@ -1,6 +1,6 @@
 {
 	"name": "The Importer by Integromat",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "The Importer by Integromat allows you to import apps to Integromat in a few clicks.",
 	"manifest_version": 2,
 	"background": {
