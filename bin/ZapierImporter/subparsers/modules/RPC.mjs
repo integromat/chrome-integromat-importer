@@ -1,3 +1,5 @@
+import camelCase from '../../updash/camelCase.mjs';
+
 import { expandUrl, paramBuilder, isEmpty, reorder } from '../../common.mjs';
 import ParseFunctions from '../ParseFunctions.mjs';
 import ParseError from '../../ParseError.mjs';
@@ -15,7 +17,7 @@ export default {
 		const rpc = {};
 		if (app.connections.length !== 0) rpc.connection = app.name;
 		rpc.label = source.label;
-		rpc.name = source.key;
+		rpc.name = camelCase(source.key);
 		rpc.parameters = ParseFunctions.parseZapierParameters(source.fields);
 		rpc.api = {
 			qs: paramBuilder(rpc.parameters, expandUrl(source.url)),
