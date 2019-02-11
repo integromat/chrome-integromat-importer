@@ -54,6 +54,9 @@ async function route() {
 				}
 			}
 		}
+		else if (mode === 'zapier-direct') {
+			location.replace("./html/zapierDirect.html")
+		}
 		else {
 			// ... keep showing 'Logged In' when no mode is set
 			location.replace("./html/loggedIn.html")

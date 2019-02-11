@@ -1,3 +1,5 @@
+import camelCase from '../updash/camelCase.mjs';
+
 export default {
 	parseZapierParameters(raw) {
 		return raw.map(source => {
@@ -51,7 +53,7 @@ export default {
 			}
 			if (source.prefill != null) {
 				parameter.type = 'select';
-				parameter.options = `rpc://${source.prefill.split('.')[0]}`;
+				parameter.options = `rpc://${camelCase(source.prefill.split('.')[0])}`;
 			}
 			return parameter;
 		});
