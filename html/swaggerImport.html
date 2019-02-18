@@ -1,0 +1,34 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body id="swaggerimport">
+	<header class="p-relative">
+		<a href="https://www.integromat.com" target="_blank">
+			<img src="https://static.integromat.com/img/logo2-dark.svg" height="30">
+		</a>
+		<a href="https://docs.integromat.com/apps/integromat-importer" id="howToLink" class="f-right help">HOW-TO?</a>
+		<a class="red f-left change-mode" id="buttonChangeMode">&laquo; Back</a>
+	</header>
+	<div id="content">
+		<h2 id="sr"></h2>
+		<h1>Ready to import a Swagger file</h1>
+		<p>Paste URL of a swagger file to the text input and click "Import"</p>
+		<form>
+			<input id="swaggerSource" type="text">
+			<button type="button" id="importSwagger">
+				Import
+			</button>
+		</form>
+	</div>
+	<footer>
+		<span id="currentUser" class="o-6"></span>
+		<a class="logout" id="buttonLogout">(Logout)</a>
+	</footer>
+	<script charset="utf-8" src="../bin/SwaggerImporter.js"></script>
+	<script type="module" src="./swaggerImport.mjs"></script>
+</body>
+
+</html>
