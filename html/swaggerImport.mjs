@@ -25,7 +25,18 @@ async function runImport() {
 
 	// Get all needed sources
 	const apiKey = await Common.getStoredApiKey();
-	const requests = await IntegromatSwaggerImporterConvert(raw)
+	let requests;
+	try {
+		requests = IntegromatSwaggerImporterConvert(raw)
+	}
+	catch (e) {
+		body.innerHTML = `
+		<div id="alert"></div>
+		</div>
+		`
+		document.getElementById('alert').innerHTML = `<span>The source file has caused an exception. The most common reason of seeing this message is a circular reference inside the Swagger file. Please check the source and then try to import again.<br><br>Error message: ${e.message}</span>`;
+		return false;
+	}
 
 	console.log(requests);
 
