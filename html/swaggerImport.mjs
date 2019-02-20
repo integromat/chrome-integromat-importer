@@ -9,19 +9,41 @@ import Common from '../bin/Common.mjs'
 	document.getElementById("currentUser").innerText = `Logged in as ${(await Common.getUserData(await Common.getStoredApiKey())).name}.`;
 })();
 
-document.getElementById("importSwagger").addEventListener("click", runImport)
+document.getElementById("importSwagger").addEventListener("click", importUrl)
+document.getElementById("importLocal").addEventListener("click", importFile)
 
-async function runImport() {
+async function importUrl() {
+	const url = document.getElementById("swaggerSource").value
+	const raw = await (await fetch(url)).json();
+	await runImport(raw);
+}
+
+async function importFile() {
+	const file = document.getElementById("localFile");
+	if ('files' in file && file.files.length != 0) {
+		const localFile = file.files[0];
+		var reader = new FileReader();
+
+		// Closure to capture the file information.
+		reader.onload = (function () {
+			return async function (e) {
+				const loaded = JSON.parse(e.target.result)
+				runImport(loaded);
+			};
+		})(localFile);
+		reader.readAsText(localFile);
+	}
+}
+
+async function runImport(raw) {
 
 	// Show preimport content
-	const url = document.getElementById("swaggerSource").value
 	const body = document.getElementById('content');
 	body.innerHTML = `
 		<div class="p-15 center">
 		<h1 class="h-icon">&#8635;</h1>
 		</div>
 		`
-	const raw = await (await fetch(url)).json();
 
 	// Get all needed sources
 	const apiKey = await Common.getStoredApiKey();
