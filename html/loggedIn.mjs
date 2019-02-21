@@ -6,6 +6,9 @@ import Common from '../bin/Common.mjs'
 (async () => {
 	document.getElementById("buttonLogout").addEventListener("click", Common.logout);
 	document.getElementById("currentUser").innerText = `Logged in as ${(await Common.getUserData(await Common.getStoredApiKey())).name}.`;
+	document.getElementById("openHistory").addEventListener("click", () => {
+		location.replace("./history.html");
+	})
 })();
 /**
  * PAGE FUNCTIONS

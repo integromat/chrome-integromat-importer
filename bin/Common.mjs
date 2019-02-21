@@ -2,7 +2,7 @@ export default {
 
 	logout: async () => {
 		await new Promise((resolve) => {
-			chrome.storage.local.remove(['imt_apiKey', 'imt_mode'], function () {
+			chrome.storage.local.remove(['imt_apiKey', 'imt_mode', 'imt_history'], function () {
 				resolve();
 			})
 		});
@@ -18,6 +18,31 @@ export default {
 		location.replace("../index.html")
 	},
 
+	pushToHistory: async (report) => {
+		return await new Promise((resolve) => {
+			chrome.storage.local.get(['imt_history'], async function (result) {
+				if (result.imt_history && Array.isArray(result.imt_history)) {
+					imt_history.push(report)
+					chrome.storage.local.set({ 'imt_history': imt_history }, async function () {
+						resolve();
+					})
+				}
+				else {
+					chrome.storage.local.set({ 'imt_history': [report] }, async function () {
+						resolve();
+					})
+				}
+			})
+		})
+	},
+
+	getHistory: async () => {
+		return await new Promise((resolve) => {
+			chrome.storage.local.get(['imt_history'], async function (result) {
+				resolve(result.imt_history)
+			})
+		})
+	},
 
 	getStoredApiKey: async () => {
 		return await new Promise((resolve) => {

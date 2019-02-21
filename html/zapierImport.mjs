@@ -8,6 +8,9 @@ import Common from '../bin/Common.mjs'
 	document.getElementById("buttonLogout").addEventListener("click", Common.logout);
 	document.getElementById("buttonChangeMode").addEventListener("click", Common.demode);
 	document.getElementById("currentUser").innerText = `Logged in as ${(await Common.getUserData(await Common.getStoredApiKey())).name}.`;
+	document.getElementById("openHistory").addEventListener("click", () => {
+		location.replace("./history.html");
+	})
 })();
 
 /**
@@ -212,6 +215,7 @@ async function importApp(id) {
 		</li>`
 	}
 	const newTab = await Common.createNewTab('html/imported.html', false);
+	await Common.pushToHistory(requests.errors);
 	await Common.sendMessageToTab(newTab, { routine: 'setErrors', errors: requests.errors })
 	await Common.updateTab(newTab, { "active": true })
 }
