@@ -87,7 +87,8 @@ footer {
     background: #737373;
     border-color: #737373;
 }
-.btn.xs {
+.btn.xs,
+#zapierimport td button {
     padding: 1px 5px;
     font-size: 12px;
     line-height: 1.5;
