@@ -27,7 +27,19 @@ async function importFile() {
 		// Closure to capture the file information.
 		reader.onload = (function () {
 			return async function (e) {
-				const loaded = JSON.parse(e.target.result)
+				let loaded;
+				try {
+					loaded = JSON.parse(e.target.result);
+				}
+				catch (e) {
+					const body = document.getElementById('content');
+					body.innerHTML = `
+					<div id="alert"></div>
+					</div>
+					`
+					document.getElementById('alert').innerHTML = `<span>Parsing the source failed. Please check the source and then try to import again.<br><br>Error message: ${e.message}</span>`;
+					return false;
+				}
 				runImport(loaded);
 			};
 		})(localFile);
@@ -50,6 +62,15 @@ async function runImport(raw) {
 	let requests;
 	try {
 		requests = await IntegromatSwaggerImporterConvert(raw)
+		console.log(requests);
+		if (!requests) {
+			body.innerHTML = `
+			<div id="alert"></div>
+			</div>
+			`
+			document.getElementById('alert').innerHTML = `<span>The source couldn't be parsed. Is it really a Swagger file?</span>`;
+			return false;
+		}
 	}
 	catch (e) {
 		body.innerHTML = `
