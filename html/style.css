@@ -108,8 +108,8 @@ footer {
 }
 .btn.go-to-docs {
     color: #fff;
-    background: #d9534f;
-    border: 1px solid #d43f3a;
+    background: #2f8cbb;
+    border-color: #2f8cbb;
     position: absolute;
     right: 15px;
     top: 10px;
@@ -117,9 +117,27 @@ footer {
 }
 .btn.go-to-docs:hover {
     color: #fff;
+    background-color: #27759c;
+    border-color: #27759c;
+}
+.error .btn.go-to-docs {
+    background: #d9534f;
+    border: 1px solid #d43f3a;
+}
+.error .btn.go-to-docs:hover {
+    color: #fff;
     background-color: #c9302c;
     border-color: #ac2925;
 }
+.warning .btn.go-to-docs {
+    background: #846b31;
+    border-color: #846b31;
+}
+.warning .btn.go-to-docs:hover {
+    background: #7b642e;
+    border-color: #7b642e;
+}
+
 .r-btn {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -304,8 +322,17 @@ table.td-h-40 td {
 a.doc {
     display: block;
     text-decoration: none;
-    border-top: 1px solid #f9d0d5;
     padding: 10px 15px;
+    color: #333;
+    border-top: 1px solid #dedede;
+}
+li.warning a.doc {
+    border-top: 1px solid #fff1d2;
+    background-color: #fff5df;
+    color: #846b31;
+}
+li.error a.doc {
+    border-top: 1px solid #f9d0d5;
     color: #7a2d36;
     background-color: #fbdde1;
 }
@@ -330,7 +357,6 @@ ol li {
 ol li::before {
     content: counter(my-counter);
     color: #fff;
-    background: #d9534f;
     text-align: center;
     padding: 2px 5px;
     margin-right: 10px;
@@ -341,6 +367,13 @@ ol li::before {
     height: calc(100% - 4px);
     top: 0;
     line-height: 250%;
+    background: #2f8cbb;
+}
+ol li.warning:before {
+    background: #846b31;
+}
+ol li.error:before {
+    background: #d9534f;
 }
 .fullsize {
     width: calc(100% - 4px);
