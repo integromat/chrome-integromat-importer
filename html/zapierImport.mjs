@@ -94,7 +94,6 @@ async function importApp(id) {
 	// Get all needed sources
 	const apiKey = await Common.getStoredApiKey();
 	const source = await (await fetch(`https://zapier.com/api/developer/v1/apps/${id}`)).json();
-	const requests = Importer.parseSource(source);
 
 	// Dump the source JSON
 	try {
@@ -108,6 +107,8 @@ async function importApp(id) {
 		})
 	}
 	catch (err) { }
+
+	const requests = Importer.parseSource(source);
 
 	// Show import content and the progress bar
 	body.innerHTML = `
