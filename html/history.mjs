@@ -11,6 +11,31 @@ import Common from '../bin/Common.mjs'
 
 (async () => {
 	const history = await Common.getHistory();
-	console.log(history);
+	history.forEach(app => {
+		/**
+		 * Creating cells in the root table
+		 */
+		let row = document.createElement('tr');
+
+		let nameCell = document.createElement('td');
+		nameCell.innerText = app.app.label
+		row.appendChild(nameCell);
+
+		let actionCell = document.createElement('td');
+		let importButton = document.createElement('button');
+
+		// Bind the importApp function for each app
+		importButton.innerText = "Show report"
+		importButton.onclick = async function () {
+			const newTab = await Common.createNewTab('html/imported.html', false);
+			await Common.sendMessageToTab(newTab, { routine: 'setErrors', errors: app.errors })
+			await Common.updateTab(newTab, { "active": true })
+		};
+
+		actionCell.appendChild(importButton);
+		row.appendChild(actionCell);
+
+		document.getElementById('apps').appendChild(row);
+	});
 })();
 
