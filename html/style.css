@@ -19,7 +19,7 @@ body {
 	margin: 0 2px;
 	color: rgb(51,51,51);
 	font-size: 13px;
-	height: 330px;
+    height: 100%;
 }
 header {
 	background: #2f8cbb;
@@ -31,6 +31,9 @@ header .help {
 	font-weight: 600;
 	color: white;
 	margin-top: 4px;
+}
+#content {
+    padding-bottom: 70px;
 }
 a {
     cursor: pointer;
@@ -45,6 +48,11 @@ h1.p-15 {
 footer {
     border-top: 1px solid #e3e4e8;
     padding: 15px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
 }
 .h-icon {
     color: #cfe7f3;
