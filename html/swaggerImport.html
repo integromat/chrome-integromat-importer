@@ -17,23 +17,22 @@
 		<h1 class="mt-30">Ready to import a Swagger file</h1>
 		<p class="pb-20 px-15">Paste URL of a swagger file to the text input and click "Import"</p>
 		<form class="pb-20">
-			<input id="swaggerSource" type="text" required>
+			<input id="swaggerSource" type="text" placeholder="Insert URL..." required>
 			<button type="button" class="btn primary r-btn" id="importSwagger">
 				Import
 			</button>
 		</form>
-		<hr>
-		<p class="pb-20 px-15">Or pick a local file to be imported</p>
+		<p class="pb-20 px-15">...or pick a local file to be imported</p>
 		<form>
-			<input type="file" id="localFile" required>
-			<button type="button" class="btn primary r-btn" id="importLocal">
-				Upload and import
-			</button>
+			<div class="upload-file-group">
+				<input type="file" id="localFile" required>
+				<label id="file-replacer" for="localFile">Choose file...</label>
+			</div>
 		</form>
 	</div>
 	<footer>
 		<span id="currentUser" class="o-6"></span>
-		<a class="logout" id="buttonLogout">(Logout)</a>
+		<a class="red" id="buttonLogout">(Logout)</a>
 	</footer>
 	<script charset="utf-8" src="../bin/SwaggerImporter.js"></script>
 	<script type="module" src="./swaggerImport.mjs"></script>
