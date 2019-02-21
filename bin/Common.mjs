@@ -22,8 +22,8 @@ export default {
 		return await new Promise((resolve) => {
 			chrome.storage.local.get(['imt_history'], async function (result) {
 				if (result.imt_history && Array.isArray(result.imt_history)) {
-					imt_history.push(report)
-					chrome.storage.local.set({ 'imt_history': imt_history }, async function () {
+					result.imt_history.push(report)
+					chrome.storage.local.set({ 'imt_history': result.imt_history }, async function () {
 						resolve();
 					})
 				}

@@ -215,7 +215,11 @@ async function importApp(id) {
 		</li>`
 	}
 	const newTab = await Common.createNewTab('html/imported.html', false);
-	await Common.pushToHistory(requests.errors);
+	await Common.pushToHistory({
+		app: app,
+		datetime: Date.now(),
+		errors: requests.errors
+	});
 	await Common.sendMessageToTab(newTab, { routine: 'setErrors', errors: requests.errors })
 	await Common.updateTab(newTab, { "active": true })
 }
