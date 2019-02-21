@@ -10,7 +10,7 @@ import Common from '../bin/Common.mjs'
 })();
 
 document.getElementById("importSwagger").addEventListener("click", importUrl)
-document.getElementById("importLocal").addEventListener("click", importFile)
+document.getElementById("localFile").addEventListener("change", importFile)
 
 async function importUrl() {
 	const url = document.getElementById("swaggerSource").value
@@ -22,6 +22,7 @@ async function importFile() {
 	const file = document.getElementById("localFile");
 	if ('files' in file && file.files.length != 0) {
 		const localFile = file.files[0];
+		document.getElementById("file-replacer").innerHTML = localFile.name;
 		var reader = new FileReader();
 
 		// Closure to capture the file information.
