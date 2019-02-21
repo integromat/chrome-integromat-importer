@@ -35,7 +35,7 @@ async function importFile() {
 				catch (e) {
 					const body = document.getElementById('content');
 					body.innerHTML = `
-					<div id="alert"></div>
+					<div id="alert" class="mt-30"></div>
 					</div>
 					`
 					document.getElementById('alert').innerHTML = `<span>Parsing the source failed. Please check the source and then try to import again.<br><br>Error message: ${e.message}</span>`;
@@ -66,7 +66,7 @@ async function runImport(raw) {
 		console.log(requests);
 		if (!requests) {
 			body.innerHTML = `
-			<div id="alert"></div>
+			<div id="alert" class="mt-30"></div>
 			</div>
 			`
 			document.getElementById('alert').innerHTML = `<span>The source couldn't be parsed. Is it really a Swagger file?</span>`;
@@ -75,7 +75,7 @@ async function runImport(raw) {
 	}
 	catch (e) {
 		body.innerHTML = `
-		<div id="alert"></div>
+		<div id="alert" class="mt-30"></div>
 		</div>
 		`
 		document.getElementById('alert').innerHTML = `<span>The source file has caused an exception. The most common reason of seeing this message is a circular reference inside the Swagger file. Please check the source and then try to import again.<br><br>Error message: ${e.message}</span>`;
