@@ -95,7 +95,7 @@ async function runImport(raw) {
 			<div id="alert" class="mt-30"></div>
 			</div>
 			`
-			document.getElementById('alert').innerHTML = `<span>The source couldn't be parsed. Is it really a Swagger file?</span>`;
+			document.getElementById('alert').innerHTML = `<span>The source couldn't be parsed. The Swagger specification might be invalid or it contains circular references, which are unimportable at the moment. It can also mean that you've uploaded a file which is not a Swagger file at all.</span>`;
 			return false;
 		}
 	}
