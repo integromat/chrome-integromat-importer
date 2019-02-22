@@ -80,6 +80,7 @@ async function runImport(raw) {
 	body.innerHTML = `
 		<div class="p-15 center">
 		<h1 class="h-icon">&#8635;</h1>
+		<h2>Parsing and converting...</h2>
 		</div>
 		`
 

@@ -196,7 +196,7 @@ async function importApp(id) {
 		progressBar.value++;
 
 		// To prevent rate limit error
-		await new Promise(resolve => setTimeout(resolve, 600));
+		await new Promise(resolve => setTimeout(resolve, 100));
 	}
 
 	/**
