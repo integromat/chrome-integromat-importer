@@ -28,9 +28,16 @@ header {
 header .help {
 	font-size: 1.15em;
 	text-decoration: none;
-	font-weight: 600;
-	color: white;
-	margin-top: 4px;
+	font-weight: 700;
+	color: #2f8cbb;
+    margin-top: 5px;
+    background: #fff;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    padding: 0;
+    text-align: center;
 }
 #content {
     padding-bottom: 70px;
