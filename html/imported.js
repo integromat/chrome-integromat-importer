@@ -1,6 +1,7 @@
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 	if (message.routine === 'setErrors') {
 		const errorWrapper = document.getElementById('errors');
+		message.errors.sort((a, b) => { return a.severity - b.severity })
 		for (const error of message.errors) {
 			const kind = error.severity < 3 ? 'warning' : 'error';
 			errorWrapper.innerHTML += `<li class="${kind}">

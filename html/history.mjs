@@ -11,6 +11,7 @@ import Common from '../bin/Common.mjs'
 
 (async () => {
 	const history = await Common.getHistory();
+	history.sort((a, b) => { return b.datetime - a.datetime });
 	history.forEach(app => {
 		/**
 		 * Creating cells in the root table
@@ -20,6 +21,10 @@ import Common from '../bin/Common.mjs'
 		let nameCell = document.createElement('td');
 		nameCell.innerText = app.app.label
 		row.appendChild(nameCell);
+
+		let dateCell = document.createElement('td');
+		dateCell.innerText = new Date(app.datetime).toLocaleDateString('cs-CZ');
+		row.appendChild(dateCell);
 
 		let actionCell = document.createElement('td');
 		let importButton = document.createElement('button');
