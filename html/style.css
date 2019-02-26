@@ -103,8 +103,8 @@ footer {
 }
 .btn.danger {
     color: #fff;
-    background: #d9534f;
-    border: 1px solid #d43f3a;
+    background: #eb5768;
+    border: 1px solid #eb5768;
     float: right;
     margin-top: -2px;
 }
@@ -137,12 +137,13 @@ footer {
     border-color: #ac2925;
 }
 .warning .btn.go-to-docs {
-    background: #846b31;
-    border-color: #846b31;
+    background: #fecd5f;
+    border-color: #fecd5f;
+    color: #111
 }
 .warning .btn.go-to-docs:hover {
-    background: #7b642e;
-    border-color: #7b642e;
+    background: #ffbd29;
+    border-color: #ffbd29;
 }
 
 .r-btn {
@@ -266,8 +267,13 @@ td {
     padding: 5px 5px 5px 15px;
     border-bottom: 1px solid #e3e4e8;
 }
-tr td:nth-child(2) {
+tr td:nth-child(2),
+tr td:nth-child(3) {
     text-align: right;
+    width: 100px;
+}
+tr td:nth-child(2) {
+    color: #999;
 }
 table tr:last-child td {
     border-bottom: 0;
@@ -334,9 +340,9 @@ a.doc {
     border-top: 1px solid #dedede;
 }
 li.warning a.doc {
-    border-top: 1px solid #fff1d2;
+    border-top: 1px solid #ffeec7;
     background-color: #fff5df;
-    color: #846b31;
+    color: #333;
 }
 li.error a.doc {
     border-top: 1px solid #f9d0d5;
@@ -377,10 +383,11 @@ ol li::before {
     background: #2f8cbb;
 }
 ol li.warning:before {
-    background: #846b31;
+    background: #fecd5f;
+    color: #111;
 }
 ol li.error:before {
-    background: #d9534f;
+    background: #eb5768;
 }
 .fullsize {
     width: calc(100% - 4px);
