@@ -9,8 +9,10 @@
 		<a href="https://www.integromat.com" target="_blank">
 			<img src="https://static.integromat.com/img/logo2-dark.svg" height="30">
 		</a>
-		<a href="https://docs.integromat.com/apps/integromat-importer" id="howToLink" class="f-right help">?</a>
-		<a class="red f-left change-mode" id="buttonChangeMode">&laquo; Back</a>
+		<a href="https://docs.integromat.com/apps/integromat-importer" id="howToLink" class="f-right help">
+			<span class="icon-question-circle"></span>
+		</a>
+		<a class="f-left change-mode" id="buttonChangeMode"><span class="icon-angle-double-left"></span> <strong>Back</strong></a>
 	</header>
 	<div id="content" class="p-15 center">
 		<h2 id="sr"></h2>
@@ -32,8 +34,8 @@
 	</div>
 	<footer>
 		<span id="currentUser" class="o-6"></span>
-		<a class="red" id="buttonLogout">(Logout)</a>
-		<button id="openHistory" class="btn xs secondary f-right">Open History</button>
+		<a id="buttonLogout" class="link no-decoration"><span class="icon-exit"></span> Sign out</a>
+		<button id="openHistory" class="btn xs f-right secondary">Open History</button>
 	</footer>
 	<script charset="utf-8" src="../bin/SwaggerImporter.js"></script>
 	<script type="module" src="./swaggerImport.mjs"></script>

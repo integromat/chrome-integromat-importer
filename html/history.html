@@ -10,12 +10,15 @@
 		<a href="https://www.integromat.com" target="_blank">
 			<img src="https://static.integromat.com/img/logo2-dark.svg" height="30">
 		</a>
-		<a href="https://docs.integromat.com/apps/integromat-importer" id="howToLink" class="f-right help">?</a>
-		<a class="red f-left change-mode" id="buttonChangeMode">&laquo; Back</a>
+		<a href="https://docs.integromat.com/apps/integromat-importer" id="howToLink" class="f-right help">
+			<span class="icon-question-circle"></span>
+		</a>
+		<a class="f-left change-mode" id="buttonChangeMode"><span class="icon-angle-double-left"></span> <strong>Back</strong></a>
 	</header>
 	<div id="content">
 		<h2 id="sr"></h2>
-		<p class="px-15 mt-50">This is a history of previous imports during this session:</p>
+		<h2 class="mt-50 px-15">History</h2>
+		<p class="px-15">This is a history of previous imports during this session:</p>
 		<div class="table">
 			<table width="100%" id="apps">
 			</table>
@@ -23,7 +26,7 @@
 	</div>
 	<footer>
 		<span id="currentUser" class="o-6"></span>
-		<a class="red" id="buttonLogout">(Logout)</a>
+		<a id="buttonLogout" class="link no-decoration"><span class="icon-exit"></span> Sign out</a>
 	</footer>
 
 	<script type="module" src="history.mjs"></script>

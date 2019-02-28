@@ -10,34 +10,32 @@
 		<a href="https://www.integromat.com" target="_blank">
 			<img src="https://static.integromat.com/img/logo2-dark.svg" height="30">
 		</a>
-		<a href="https://docs.integromat.com/apps/integromat-importer" class="f-right help">?</a>
+		<a href="https://docs.integromat.com/apps/integromat-importer" id="howToLink" class="f-right help">
+			<span class="icon-question-circle"></span>
+		</a>
 	</header>
-	<div id="content" class="px-15 mt-30">
+	<div id="content" class="px-30 mt-50">
 		<h1>Voila! Your app has been imported successfully.</h1>
 		<p class="large">
 			The app has been imported successfully.
-			You can now find it in the <a class="link" href="https://www.integromat.com/apps">My Apps</a> section in Integromat.
+			You can now find it in the <a class="link no-decoration" href="https://www.integromat.com/apps">My Apps</a> section in Integromat.
 		</p>
-		<p class="mt-50">
-			<strong>NEXT STEPS:</strong><br>
-			<a class="link" href="https://docs.integromat.com/apps/integromat-importer/after-import">
-				Submit your app for review by following the instructions on this page
-			</a>. Once approved, your app will be made public and our users will be able to use the modules in their scenarios!
-		</p>
-		<p class="mt-50">
-			<strong class="ico red bolder">!</strong> While your app has been imported, the following issues need your attention: (Click to know about the cause as well
+		<h2 class="mt-50">1. Check that everything works well</h2>
+		<p class="mt-30">You can find your imported app in the <a href="https://www.integromat.com/apps" target="_blank" class="link no-decoration">My Apps</a> section in your Integromat Account. Build some test scenarios to verify that all modules are working correctly and as expected. You can edit the app directly from the web interface or use the <strong>recommended way</strong> - edit your app using the <a href="https://docs.integromat.com/apps/apps-sdk" target="_blank" class="link no-decoration"><strong>Apps SDK</strong></a>.</p>
+
+		<p class="mt-30">
+			<span class="icon-warning text-warning"></span> While your app has been imported, the following issues need your attention: (Click to know about the cause as well
 			as the fix)
 		</p>
-	</div>
-	<ol id='errors'>
-	</ol>
-	<div class="p-15 mt-30">
-		<p>
-			<strong>TIP FOR DEVELOPERS:</strong><br>
-			<a class="link" href="https://docs.integromat.com/apps/">Check out the apps documentation</a>
-			to learn how to expand the
-			functionality of your app to enable users to do even
-			more!
+		<ol id='errors' class="px-min-30">
+		</ol>
+		<h2 class="mt-50">2. Expand the functionality (optional)</h2>
+		<p class="mt-30">Integromat allows you to implement even more functions to your app than you've ever dreamed about. Using the <a href="https://docs.integromat.com/apps/apps-sdk" target="_blank" class="link no-decoration"><strong>Apps SDK</strong></a>, you can improve the functionality and offer even better integrations to your customers.</p>
+		<h2 class="mt-50">3. Apply for a review</h2>
+		<p class="mt-30">When you think your app is ready to be published, apply for an <strong>app review</strong>. You can read more about the review <a href="https://docs.integromat.com/apps/how-to-pass-an-app-review" target="_blank" class="link no-decoration"><strong>here</strong></a>.</p>
+		<strong class="mt-50 d-block">TIP FOR DEVELOPERS:</strong>
+		<a class="link" href="https://docs.integromat.com/apps/">Check out the apps documentation</a>
+		to learn how to expand the functionality of your app to enable users to do even more!
 		</p>
 	</div>
 	<script src="imported.js"></script>

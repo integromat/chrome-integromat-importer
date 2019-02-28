@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400&subset=latin-ext');
+@import url('icon-style.css');
 * {
 	box-sizing: border-box;
 }
@@ -14,27 +15,27 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #2f8cbb;
 }
+html {
+    background: #f8f8f8;
+}
 body {
 	width: 512px;
 	margin: 0 2px;
 	color: rgb(51,51,51);
 	font-size: 13px;
     height: 100%;
+    background: #fff;
 }
 header {
 	background: #2f8cbb;
 	padding: 7px 12px 4px;
 }
 header .help {
-	font-size: 1.15em;
+	font-size: 1.6em;
 	text-decoration: none;
 	font-weight: 700;
-	color: #2f8cbb;
+	color: #fff;
     margin-top: 5px;
-    background: #fff;
-    border-radius: 50%;
-    height: 20px;
-    width: 20px;
     line-height: 20px;
     padding: 0;
     text-align: center;
@@ -86,13 +87,13 @@ footer {
 	border-color: #256d92;
 }
 .btn.secondary {
-	background: #868686;
-    border: 1px solid #868686;
-    color: #fff;
+	background: transparent;
+    border: 1px solid #2f8cbb;
+    color:#2f8cbb;
 }
 .btn.secondary:hover {
-    background: #737373;
-    border-color: #737373;
+    border-color: #27759c;
+    color: #27759c;
 }
 .btn.xs,
 #zapierimport td button {
@@ -144,6 +145,9 @@ footer {
 .warning .btn.go-to-docs:hover {
     background: #ffbd29;
     border-color: #ffbd29;
+}
+.text-warning {
+    color: #fecd5f;
 }
 
 .r-btn {
@@ -223,6 +227,14 @@ progress::-webkit-progress-value {
 	padding-left: 15px;
 	padding-right: 15px;
 }
+.px-30 {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.px-min-30 {
+    padding-left: -30px;
+    padding-right: -30px;
+}
 .p-15 {
     padding: 15px
 }
@@ -239,6 +251,14 @@ progress::-webkit-progress-value {
     text-decoration: underline;
     color: #2f8cbb;
     cursor: pointer;
+}
+.no-decoration {
+    text-decoration: none!important;
+}
+footer a .icon-exit {
+    position: relative;
+    top: 2px;
+    margin-left: 5px;
 }
 .red {
     color: #eb5768;
@@ -258,10 +278,14 @@ table {
     border-collapse: collapse;
 }
 .table {
-    max-height: 275px;
+    min-height: 130px;
+    max-height: 130px;
     overflow-y: auto;
     border-top: 1px solid #e3e4e8;
     border-bottom: 1px solid #e3e4e8;
+}
+#zapierimport #content {
+    padding-bottom: 50px;
 }
 td {
     padding: 5px 5px 5px 15px;
@@ -270,7 +294,7 @@ td {
 tr td:nth-child(2),
 tr td:nth-child(3) {
     text-align: right;
-    width: 100px;
+    width: 110px;
 }
 tr td:nth-child(2) {
     color: #999;
@@ -332,6 +356,9 @@ table.td-h-40 td {
 .d-none {
     display: none;
 }
+.d-block {
+    display: block;
+}
 a.doc {
     display: block;
     text-decoration: none;
@@ -340,14 +367,16 @@ a.doc {
     border-top: 1px solid #dedede;
 }
 li.warning a.doc {
-    border-top: 1px solid #ffeec7;
+    border: 1px solid #ffeec7;
     background-color: #fff5df;
     color: #333;
+    border-radius: 5px;
 }
 li.error a.doc {
-    border-top: 1px solid #f9d0d5;
+    border: 1px solid #f9d0d5;
     color: #7a2d36;
     background-color: #fbdde1;
+    border-radius: 5px;
 }
 .spin {
     animation:spin 1s linear infinite;
@@ -366,6 +395,7 @@ ol {
 ol li {
     counter-increment: my-counter;
     position: relative;
+    margin: 10px 0;
 }
 ol li::before {
     content: counter(my-counter);
@@ -381,6 +411,7 @@ ol li::before {
     top: 0;
     line-height: 250%;
     background: #2f8cbb;
+    border-radius: 5px 0 0 5px;
 }
 ol li.warning:before {
     background: #fecd5f;
@@ -390,7 +421,22 @@ ol li.error:before {
     background: #eb5768;
 }
 .fullsize {
-    width: calc(100% - 4px);
+    width: 920px;
+    max-width: calc(100% - 4px);
+    margin: auto;
+    margin-top: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    border-radius: 8px;
+    font-size: 15px;
+    line-height: 1.7em;
+    height: auto;
+}
+.fullsize header {
+    border-radius: 8px 8px 0 0;
+}
+.fullsize header .icon-question-circle  {
+    position: relative;
+    top: -5px;
 }
 .fullsize a.doc {
     padding-left: 45px;

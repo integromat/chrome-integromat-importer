@@ -87,7 +87,9 @@ async function importApp(id) {
 	const body = document.getElementById('content');
 	body.innerHTML = `
 		<div class="p-15 center">
-		<h1 class="h-icon mt-70 pb-20">&#8635;</h1>
+		<h1 class="h-icon spin mt-70">
+		<span class="icon-spinner2"></span>
+		</h1>
 		</div>
 		`
 
@@ -112,8 +114,11 @@ async function importApp(id) {
 
 	// Show import content and the progress bar
 	body.innerHTML = `
-	<div class="p-15">
-	<h1 class="mt-30"><strong class="ico red bolder">!</strong> Import in progress, please don't click away!</h1>
+	<div class="p-15 center">
+	<h1 class="h-icon mt-70">
+	<span class="icon-warning text-warning"></span>
+	</h1>
+	<h1>Import in progress, don't click away!</h1>
 	<h3>Your app will be imported in a jiffy. </h3>
 	<progress id='progress' max="${requests.requests.length + 1}" value="0"></progress>
 	<div id="alert"></div>
@@ -205,8 +210,12 @@ async function importApp(id) {
 	 * The error codes will be used for documentation links
 	 */
 	body.innerHTML = `
-	<h1 class="p-15 mt-30">DONE!</h1>
+	<div id="content" class="p-15 center">
+	<h1 class="h-icon spin mt-70">
+	<span class="icon-spinner2"></span>
+	</h1>
 	<ol id="errors" class="errors"></ol>
+	</div>
 	`
 	const errorWrapper = document.getElementById('errors');
 	for (const error of requests.errors) {
