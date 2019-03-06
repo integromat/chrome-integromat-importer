@@ -10,23 +10,27 @@
 		<a href="https://www.integromat.com" target="_blank">
 			<img src="https://static.integromat.com/img/logo2-dark.svg" height="30">
 		</a>
-		<a href="https://docs.integromat.com/apps/integromat-importer" id="howToLink" class="f-right help">?</a>
-		<a class="red f-left change-mode" id="buttonChangeMode">&laquo; Back</a>
+		<a href="https://docs.integromat.com/apps/integromat-importer" id="howToLink" class="f-right help">
+			<span class="icon-question-circle"></span>
+		</a>
+		<a class="f-left change-mode" id="buttonChangeMode"><span class="icon-angle-double-left"></span> <strong>Back</strong></a>
 	</header>
 	<div id="content">
 		<h2 id="sr"></h2>
-		<p class="px-15 mt-50">Here is the list of apps you have created on Zapier. All are ready to be imported to
-			Integromat.</p>
+		<h2 class="mt-50 px-15">Web Builder Apps</h2>
+		<p class="px-15">Here is the list of apps you have created on Zapier. All are ready to be imported to
+			Integromat:</p>
 		<div class="table">
 			<table width="100%" id="apps">
 			</table>
 		</div>
-		<p class="px-15 red">
+		<h2 class="px-15">CLI Apps</h2>
+		<p class="px-15">
 			There are also those CLI-built apps under your account.
 			Sadly, it's not possible to import a CLI based app (yet?).
 			You can read more about that <a
 				href="https://docs.integromat.com/apps/integromat-importer/zapier-importer#cli-apps" id="cliLink"
-				class="red">here</a>.
+				class="link">here</a>.
 		</p>
 		<div class="table">
 			<table width="100%" id="cli" class="o-6 td-h-40">
@@ -35,8 +39,8 @@
 	</div>
 	<footer>
 		<span id="currentUser" class="o-6"></span>
-		<a class="red" id="buttonLogout">(Logout)</a>
-		<button id="openHistory" class="btn xs secondary f-right">Open History</button>
+		<a id="buttonLogout" class="link no-decoration"><span class="icon-exit"></span> Sign out</a>
+		<button id="openHistory" class="btn xs f-right secondary">Open History</button>
 	</footer>
 
 	<script type="module" src="zapierImport.mjs"></script>
