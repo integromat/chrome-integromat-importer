@@ -431,6 +431,29 @@ ol li.error:before {
     line-height: 1.7em;
     height: auto;
 }
+.warnings-count {
+    color: #ffbb21;
+    font-weight: 700;
+}
+.errors-count {
+    color: #eb5768;
+    font-weight: 700;
+}
+#show-warnings {
+    background: #fecd5f;
+    border-color: #fecd5f;
+    color: #111;
+}
+#warnings {
+    transition: .2s ease ease-in-out;
+    overflow: hidden;
+}
+#warnings.show {
+    height: auto;
+}
+#warnings.hide {
+    height: 0;
+}
 .fullsize header {
     border-radius: 8px 8px 0 0;
 }
