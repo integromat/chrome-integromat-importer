@@ -4,6 +4,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 		const errorWrapper = document.getElementById('errors');
 		message.errors.sort((a, b) => { return a.severity - b.severity })
 
+		let wC = 0;
+		let eC = 0;
 		for (const error of message.errors) {
 			const kind = error.severity < 3 ? 'warning' : 'error';
 			if (error.severity < 3) {
@@ -11,13 +13,17 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 				<a class="doc" target="_blank" href="https://docs.integromat.com/apps/integromat-importer/errors/${error.code}">${error.description} - Severity: ${error.severity}</a>
 				<a class="f-right go-to-docs btn xs" target="_blank" href="https://docs.integromat.com/apps/integromat-importer/errors/${error.code}">Open in Docs</a>
 				</li>`
+				wC++;
 			} else {
 				errorWrapper.innerHTML += `<li class="${kind}">
 				<a class="doc" target="_blank" href="https://docs.integromat.com/apps/integromat-importer/errors/${error.code}">${error.description} - Severity: ${error.severity}</a>
 				<a class="f-right go-to-docs btn xs" target="_blank" href="https://docs.integromat.com/apps/integromat-importer/errors/${error.code}">Open in Docs</a>
 				</li>`
+				eC++;
 			}
 		}
+		document.getElementById('warnings-count-data').innerHTML = wC;
+		document.getElementById('errors-count-data').innerHTML = eC;
 		sendResponse({ status: 0 })
 	}
 });
