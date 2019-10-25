@@ -1,0 +1,1 @@
+zip -r chrome-integromat-importer.zip bin fonts html icon background.mjs index.html index.mjs manifest.json
