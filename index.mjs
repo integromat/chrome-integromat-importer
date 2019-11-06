@@ -36,23 +36,7 @@ async function route() {
 	else {
 		const mode = await Common.getMode();
 		if (mode === 'zapier') {
-			// ... if mode is Zapier and user is not on Zapier
-			if (!currentTab.url.match('zapier.com')) {
-				location.replace("./html/zapierNotOn.html")
-			}
-			// ... and user's on Zapier site ...
-			else {
-				// ... check if the 'apps' endpoint is reachable ...
-				const status = (await fetch('https://zapier.com/api/developer/v1/apps')).status;
-				// ... if so, everything is ready for import.
-				if (status === 200) {
-					location.replace("./html/zapierImport.html")
-				}
-				// ... if not, user's probably not logged in.
-				else {
-					location.replace("./html/zapierLogin.html")
-				}
-			}
+			location.replace("./html/zapierNotOn.html")
 		}
 		else if (mode === 'swagger') {
 			location.replace("./html/swaggerImport.html")
