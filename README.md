@@ -1,0 +1,3 @@
+# The Importer by Integromat
+
+The Importer by Integromat enables you to import your app from other integration platforms into Integromat with just a few clicks. Your customers want the ability to connect the apps in their workflows with minimal friction using their tool of choice. However, making your app available on each integration platform requires resources that could be better spent on improving your core product. Well, we built the Importer with exactly that in mind so that you can make your app available on Integromat not in days, but hours. Try it out for yourself not today, but now!
